@@ -843,22 +843,22 @@
         <article class="card theme-orange">
           <h3>High-Frequency Topics</h3>
           <ul>
-            <li><span class="keyword k-orange">Shared responsibility model</span>: know what AWS manages versus what the customer manages.</li>
-            <li><span class="keyword k-orange">IAM, MFA, and root user</span>: expect questions about least privilege and root-user protection.</li>
-            <li><span class="keyword k-orange">Regions and Availability Zones</span>: understand resiliency, fault isolation, and global infrastructure.</li>
-            <li><span class="keyword k-orange">Pricing and support plans</span>: compare On-Demand, Reserved, Spot, Savings Plans, and support tiers.</li>
-            <li><span class="keyword k-orange">Storage and databases</span>: compare Amazon S3, Amazon EBS, Amazon EFS, Amazon RDS, and Amazon DynamoDB.</li>
+            <li><span class="keyword k-orange">Shared responsibility model</span>: <strong>AWS secures the cloud</strong>; the <strong>customer secures what runs in the cloud</strong>, such as identities, data, operating systems on Amazon EC2, and configurations.</li>
+            <li><span class="keyword k-orange">IAM, MFA, and root user</span>: the best answer is usually <strong>use least privilege</strong>, <strong>enable MFA</strong>, and <strong>do not use the root user for everyday tasks</strong>.</li>
+            <li><span class="keyword k-orange">Regions and Availability Zones</span>: a <strong>Region</strong> is a geographic area, an <strong>Availability Zone</strong> is an isolated location inside a Region, and using multiple Availability Zones improves <strong>high availability</strong>.</li>
+            <li><span class="keyword k-orange">Pricing and support plans</span>: <strong>On-Demand</strong> is for flexibility, <strong>Reserved</strong> and <strong>Savings Plans</strong> reduce cost for steady usage, <strong>Spot</strong> is cheapest for interruptible workloads, and higher support plans add faster help and more guidance.</li>
+            <li><span class="keyword k-orange">Storage and databases</span>: <strong>Amazon S3</strong> is object storage, <strong>Amazon EBS</strong> is block storage for Amazon EC2, <strong>Amazon EFS</strong> is shared file storage, <strong>Amazon RDS</strong> is managed SQL, and <strong>Amazon DynamoDB</strong> is NoSQL.</li>
           </ul>
         </article>
 
         <article class="card theme-blue">
           <h3>Common Question Patterns</h3>
           <ul>
-            <li><span class="keyword k-blue">Best service for a use case</span>: choose the service that best matches a short scenario.</li>
-            <li><span class="keyword k-blue">Service comparisons</span>: distinguish similar services such as Amazon SNS vs Amazon SQS or AWS CloudTrail vs Amazon CloudWatch.</li>
-            <li><span class="keyword k-blue">Cost optimization choices</span>: identify which pricing model or storage option lowers cost for a workload.</li>
-            <li><span class="keyword k-blue">Security responsibility</span>: identify who secures identity, data, operating systems, or infrastructure in a given example.</li>
-            <li><span class="keyword k-blue">Support and governance</span>: recognize when AWS Trusted Advisor, AWS Support plans, AWS Artifact, or AWS Organizations is the right answer.</li>
+            <li><span class="keyword k-blue">Best service for a use case</span>: if the question says <strong>object storage</strong>, answer <strong>Amazon S3</strong>; if it says <strong>managed relational database</strong>, answer <strong>Amazon RDS</strong>; if it says <strong>serverless code</strong>, answer <strong>AWS Lambda</strong>.</li>
+            <li><span class="keyword k-blue">Service comparisons</span>: <strong>Amazon SNS</strong> pushes messages to many subscribers, <strong>Amazon SQS</strong> stores messages in a queue, <strong>AWS CloudTrail</strong> records API activity, and <strong>Amazon CloudWatch</strong> monitors metrics, logs, and alarms.</li>
+            <li><span class="keyword k-blue">Cost optimization choices</span>: for <strong>steady workloads</strong>, choose <strong>Reserved Instances</strong> or <strong>Savings Plans</strong>; for <strong>flexible short-term workloads</strong>, choose <strong>On-Demand</strong>; for <strong>interruptible workloads</strong>, choose <strong>Spot Instances</strong>.</li>
+            <li><span class="keyword k-blue">Security responsibility</span>: <strong>AWS</strong> manages physical infrastructure, while the <strong>customer</strong> manages users, permissions, operating systems on Amazon EC2, application settings, and data protections.</li>
+            <li><span class="keyword k-blue">Support and governance</span>: <strong>AWS Trusted Advisor</strong> gives recommendations, <strong>AWS Artifact</strong> provides compliance reports, <strong>AWS Organizations</strong> manages multiple accounts, and higher <strong>AWS Support plans</strong> add expert help and operational guidance.</li>
           </ul>
         </article>
       </div>
