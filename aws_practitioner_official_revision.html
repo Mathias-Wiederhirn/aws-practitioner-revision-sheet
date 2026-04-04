@@ -52,6 +52,28 @@
       margin: 24px auto 48px;
     }
 
+    .top-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .top-link {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff7ed;
+      font-weight: 700;
+      backdrop-filter: blur(10px);
+    }
+
+    .top-link:hover {
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
     .hero {
       padding: 44px;
       border-radius: 34px;
@@ -144,6 +166,27 @@
       font-size: 1.7rem;
     }
 
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .section-header h2 {
+      margin-bottom: 0;
+    }
+
+    .section-kicker {
+      margin: 0;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
     .intro {
       margin: 0 0 18px;
       color: var(--muted);
@@ -168,6 +211,15 @@
       border: 1px solid var(--line);
       border-radius: 20px;
       background: #fffdfa;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .card:hover,
+    .service-group:hover,
+    .domain-block:hover,
+    .extra-services:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
     }
 
     .card h3 {
@@ -204,6 +256,7 @@
       padding: 22px;
       border-radius: 22px;
       border: 1px solid var(--line);
+      transition: transform 180ms ease, box-shadow 180ms ease;
     }
 
     .domain-block.domain-1 {
@@ -325,6 +378,7 @@
       border: 1px solid var(--line);
       border-radius: 20px;
       background: #fffdfa;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     }
 
     .service-group h3 {
@@ -363,6 +417,7 @@
       border-radius: 16px;
       background: white;
       border: 1px solid #f1e6d7;
+      transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
     }
 
     .service-icon {
@@ -409,6 +464,97 @@
       font-size: 0.94rem;
     }
 
+    .search-panel {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      padding: 20px;
+      border-radius: 24px;
+      border: 1px solid #fed7aa;
+      background: rgba(255, 252, 247, 0.88);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    }
+
+    .search-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 15px 18px;
+      border-radius: 16px;
+      border: 1px solid #fdba74;
+      background: white;
+      font: inherit;
+      color: var(--text);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: #f97316;
+      box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.16);
+    }
+
+    .clear-button {
+      appearance: none;
+      border: 0;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font: inherit;
+      font-weight: 800;
+      color: white;
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(29, 78, 216, 0.2);
+    }
+
+    .search-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .search-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .search-pill {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid #dbeafe;
+      background: #f8fbff;
+      color: var(--blue);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .search-pill:hover {
+      background: #eff6ff;
+    }
+
+    .is-hidden {
+      display: none !important;
+    }
+
+    .is-match {
+      border-color: #fb923c !important;
+      background: linear-gradient(180deg, #fff7ed 0%, #ffffff 100%) !important;
+      box-shadow: 0 10px 24px rgba(249, 115, 22, 0.1);
+    }
+
     .note {
       margin-top: 16px;
       color: var(--muted);
@@ -453,6 +599,15 @@
 
       .hero, .section {
         padding: 22px;
+      }
+
+      .search-row {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: start;
       }
     }
 
@@ -512,6 +667,10 @@
         display: none !important;
       }
 
+      .search-panel {
+        display: none !important;
+      }
+
       a {
         color: inherit;
         text-decoration: none;
@@ -522,6 +681,12 @@
 <body>
   <main class="page">
     <section class="hero">
+      <div class="top-strip">
+        <a class="top-link" href="#domains">Domains</a>
+        <a class="top-link" href="#concepts">Concepts</a>
+        <a class="top-link" href="#services">Services</a>
+        <a class="top-link" href="#sources">Sources</a>
+      </div>
       <p class="eyebrow">AWS Certified Cloud Practitioner • CLF-C02</p>
       <h1>Mathias AWS Cloud Practitioner Revision</h1>
       <p>
@@ -533,8 +698,37 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>Official AWS Sources</h2>
+    <section class="search-panel">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Quick Revision Tool</p>
+          <h2>Search Services and Concepts</h2>
+        </div>
+      </div>
+      <div class="search-row">
+        <input id="revision-search" class="search-box" type="search" placeholder="Search a service, acronym, concept, database type, pricing model, or support feature..." aria-label="Search services and concepts" />
+        <button id="clear-search" class="clear-button" type="button">Clear Search</button>
+      </div>
+      <div class="search-meta">
+        <span id="search-status">Search across the concepts cards and the service catalog.</span>
+        <span id="search-count">All items visible</span>
+      </div>
+      <div class="search-pills">
+        <button class="search-pill" type="button" data-search-chip="Lambda">Lambda</button>
+        <button class="search-pill" type="button" data-search-chip="shared responsibility">Shared responsibility</button>
+        <button class="search-pill" type="button" data-search-chip="NoSQL">NoSQL</button>
+        <button class="search-pill" type="button" data-search-chip="Trusted Advisor">Trusted Advisor</button>
+        <button class="search-pill" type="button" data-search-chip="Savings Plans">Savings Plans</button>
+      </div>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Reference</p>
+          <h2>Official AWS Sources</h2>
+        </div>
+      </div>
       <p class="intro">
         These are the primary official AWS pages used to structure this revision sheet.
       </p>
@@ -550,8 +744,13 @@
       </ul>
     </section>
 
-    <section class="section">
-      <h2>Official Principles and Core Ideas</h2>
+    <section class="section" id="domains">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Exam Blueprint</p>
+          <h2>Official Principles and Core Ideas</h2>
+        </div>
+      </div>
       <p class="intro">
         These topic blocks are based directly on the four official CLF-C02 domain pages. Each task includes a short study description plus the main knowledge and skill points AWS calls out.
       </p>
@@ -690,8 +889,13 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>Official Technologies and Concepts</h2>
+    <section class="section concepts-section" id="concepts">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">High-Yield Topics</p>
+          <h2>Official Technologies and Concepts</h2>
+        </div>
+      </div>
       <div class="grid two">
         <article class="card theme-orange">
           <h3>Architecture and Build</h3>
@@ -748,8 +952,13 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>Official In-Scope AWS Services</h2>
+    <section class="section services-section" id="services">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Service Catalog</p>
+          <h2>Official In-Scope AWS Services</h2>
+        </div>
+      </div>
       <p class="intro">
         The categories below follow the official CLF-C02 in-scope services page. Descriptions are concise study notes written in official AWS style so the page stays readable. Icons come from the official AWS Architecture Icons package when AWS provides a dedicated icon for that service or tool.
       </p>
@@ -1091,6 +1300,79 @@
       icon.loading = "lazy";
       icon.onerror = () => icon.remove();
       item.insertBefore(icon, serviceName);
+    });
+
+    const searchInput = document.querySelector("#revision-search");
+    const clearSearchButton = document.querySelector("#clear-search");
+    const searchStatus = document.querySelector("#search-status");
+    const searchCount = document.querySelector("#search-count");
+    const searchChips = document.querySelectorAll("[data-search-chip]");
+    const conceptItems = [...document.querySelectorAll(".concepts-section .card li")];
+    const conceptCards = [...document.querySelectorAll(".concepts-section .card")];
+    const serviceItems = [...document.querySelectorAll(".services-section .service-group li, .services-section .extra-service-list li")];
+    const serviceGroups = [...document.querySelectorAll(".services-section .service-group")];
+    const extraServices = document.querySelector(".extra-services");
+    const searchableItems = [...conceptItems, ...serviceItems];
+
+    searchableItems.forEach((item) => {
+      item.dataset.searchText = item.textContent.toLowerCase().replace(/\s+/g, " ").trim();
+    });
+
+    function setSearchQuery(value) {
+      searchInput.value = value;
+      applySearch(value);
+    }
+
+    function applySearch(rawValue) {
+      const query = rawValue.toLowerCase().trim();
+      let visibleCount = 0;
+
+      searchableItems.forEach((item) => {
+        const isMatch = !query || item.dataset.searchText.includes(query);
+        item.classList.toggle("is-hidden", !isMatch);
+        item.classList.toggle("is-match", Boolean(query) && isMatch);
+        if (isMatch) visibleCount += 1;
+      });
+
+      conceptCards.forEach((card) => {
+        const hasVisibleItems = [...card.querySelectorAll("li")].some((item) => !item.classList.contains("is-hidden"));
+        card.classList.toggle("is-hidden", !hasVisibleItems);
+      });
+
+      serviceGroups.forEach((group) => {
+        const hasVisibleItems = [...group.querySelectorAll("li")].some((item) => !item.classList.contains("is-hidden"));
+        group.classList.toggle("is-hidden", !hasVisibleItems);
+      });
+
+      if (extraServices) {
+        const hasVisibleItems = [...extraServices.querySelectorAll(".extra-service-list li")].some((item) => !item.classList.contains("is-hidden"));
+        extraServices.classList.toggle("is-hidden", !hasVisibleItems);
+      }
+
+      if (!query) {
+        searchStatus.textContent = "Search across the concepts cards and the service catalog.";
+        searchCount.textContent = "All items visible";
+        return;
+      }
+
+      searchStatus.textContent = `Showing results for "${rawValue}".`;
+      searchCount.textContent = visibleCount === 1 ? "1 match" : `${visibleCount} matches`;
+    }
+
+    searchInput?.addEventListener("input", (event) => {
+      applySearch(event.target.value);
+    });
+
+    clearSearchButton?.addEventListener("click", () => {
+      setSearchQuery("");
+      searchInput.focus();
+    });
+
+    searchChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        setSearchQuery(chip.dataset.searchChip || "");
+        searchInput.focus();
+      });
     });
 
     window.addEventListener("beforeprint", () => {
