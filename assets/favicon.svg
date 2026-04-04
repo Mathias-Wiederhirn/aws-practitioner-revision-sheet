@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mathias AWS revision favicon">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9900"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <path d="M18 38c0-6 4.7-10.8 10.6-10.8 1.4-5.2 6.1-9 11.7-9 6.8 0 12.4 5.4 12.7 12.2 3.1 1 5 3.9 5 7.1 0 4.3-3.5 7.7-7.8 7.7H25.7C21.5 45.2 18 42 18 38Z" fill="#fff7ed"/>
+  <path d="M19 48.5c7.8 3.5 18.3 4.8 28.8 2.7" fill="none" stroke="#7c2d12" stroke-width="3" stroke-linecap="round"/>
+  <text x="32" y="39" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="800" fill="#9a3412">M</text>
+</svg>

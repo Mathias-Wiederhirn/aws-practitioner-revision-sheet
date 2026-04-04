@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mathias AWS Cloud Practitioner Official Revision</title>
+  <meta name="description" content="Mathias AWS Cloud Practitioner revision site with official CLF-C02 domains, technologies, concepts, and in-scope AWS services." />
+  <meta name="theme-color" content="#f97316" />
+  <meta property="og:title" content="Mathias AWS Cloud Practitioner Revision" />
+  <meta property="og:description" content="Official-style AWS Cloud Practitioner CLF-C02 revision page with domains, concepts, and services." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/social-preview.svg" />
+  <meta property="og:image:alt" content="Mathias AWS Cloud Practitioner revision preview" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mathias AWS Cloud Practitioner Revision" />
+  <meta name="twitter:description" content="Official-style AWS Cloud Practitioner CLF-C02 revision page with domains, concepts, and services." />
+  <meta name="twitter:image" content="assets/social-preview.svg" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <style>
+    :root {
+      --bg: #fbf7ef;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #596579;
+      --line: #e6e9ef;
+      --accent: #c2410c;
+      --accent-soft: #ffedd5;
+      --blue: #1d4ed8;
+      --blue-soft: #dbeafe;
+      --green: #166534;
+      --green-soft: #dcfce7;
+      --gold: #92400e;
+      --gold-soft: #fef3c7;
+      --shadow: 0 22px 48px rgba(15, 23, 42, 0.08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(249, 115, 22, 0.16), transparent 22%),
+        radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.12), transparent 22%),
+        linear-gradient(180deg, #fff8ef 0%, #fffdfb 48%, #f8fbff 100%);
+    }
+
+    .page {
+      width: min(1300px, calc(100% - 36px));
+      margin: 24px auto 48px;
+    }
+
+    .hero {
+      padding: 44px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, #ff9900 0%, #f97316 56%, #ea580c 100%);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ffedd5;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      line-height: 0.95;
+      max-width: 860px;
+    }
+
+    .hero p {
+      margin: 16px 0 0;
+      max-width: 860px;
+      line-height: 1.65;
+      color: #fff7ed;
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+      align-items: center;
+    }
+
+    .print-button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font: inherit;
+      font-weight: 800;
+      color: #9a3412;
+      background: #fff7ed;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(124, 45, 18, 0.16);
+    }
+
+    .print-button:hover {
+      background: #ffffff;
+    }
+
+    .print-hint {
+      color: rgba(255, 247, 237, 0.92);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .hero-stat {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-weight: 700;
+    }
+
+    .section {
+      margin-top: 24px;
+      padding: 26px;
+      border-radius: var(--radius);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 1.7rem;
+    }
+
+    .intro {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fffdfa;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .card.theme-orange {
+      background: #fff7ed;
+      border-color: #fdba74;
+    }
+
+    .card.theme-blue {
+      background: #eff6ff;
+      border-color: #93c5fd;
+    }
+
+    .card.theme-green {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+
+    .card.theme-gold {
+      background: #fffbeb;
+      border-color: #fcd34d;
+    }
+
+    .card.theme-orange h3 { color: var(--accent); }
+    .card.theme-blue h3 { color: var(--blue); }
+    .card.theme-green h3 { color: var(--green); }
+    .card.theme-gold h3 { color: var(--gold); }
+
+    .domain-block {
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+    }
+
+    .domain-block.domain-1 {
+      background: #fff7ed;
+      border-color: #fdba74;
+    }
+
+    .domain-block.domain-2 {
+      background: #eff6ff;
+      border-color: #93c5fd;
+    }
+
+    .domain-block.domain-3 {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+
+    .domain-block.domain-4 {
+      background: #fffbeb;
+      border-color: #fcd34d;
+    }
+
+    .domain-title {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+    }
+
+    .domain-1 .domain-title { color: var(--accent); }
+    .domain-2 .domain-title { color: var(--blue); }
+    .domain-3 .domain-title { color: var(--green); }
+    .domain-4 .domain-title { color: var(--gold); }
+
+    .topic-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      margin-top: 14px;
+    }
+
+    .topic-card h4 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .topic-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .pill {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.84rem;
+    }
+
+    .keyword {
+      display: inline-block;
+      padding: 0.08rem 0.46rem;
+      border-radius: 999px;
+      font-weight: 700;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .k-orange { color: var(--accent); background: var(--accent-soft); }
+    .k-blue { color: var(--blue); background: var(--blue-soft); }
+    .k-green { color: var(--green); background: var(--green-soft); }
+    .k-gold { color: var(--gold); background: var(--gold-soft); }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 10px 0;
+      color: var(--muted);
+      line-height: 1.58;
+      overflow-wrap: anywhere;
+    }
+
+    .source-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .jump-link {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: rgba(29, 78, 216, 0.35);
+      text-underline-offset: 2px;
+    }
+
+    .service-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .service-group {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fffdfa;
+    }
+
+    .service-group h3 {
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+    }
+
+    .service-group.analytics h3 { color: var(--accent); }
+    .service-group.integration h3 { color: var(--blue); }
+    .service-group.business h3 { color: var(--green); }
+    .service-group.finance h3 { color: var(--gold); }
+    .service-group.compute h3 { color: var(--accent); }
+    .service-group.containers h3 { color: var(--blue); }
+    .service-group.enablement h3 { color: var(--green); }
+    .service-group.database h3 { color: var(--gold); }
+    .service-group.devtools h3 { color: var(--accent); }
+    .service-group.enduser h3 { color: var(--blue); }
+    .service-group.frontend h3 { color: var(--green); }
+    .service-group.iot h3 { color: var(--gold); }
+    .service-group.ml h3 { color: var(--accent); }
+    .service-group.management h3 { color: var(--blue); }
+    .service-group.migration h3 { color: var(--green); }
+    .service-group.network h3 { color: var(--gold); }
+    .service-group.security h3 { color: var(--accent); }
+    .service-group.serverless h3 { color: var(--blue); }
+    .service-group.storage h3 { color: var(--green); }
+
+    .service-group ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .service-group li {
+      margin: 10px 0;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: white;
+      border: 1px solid #f1e6d7;
+    }
+
+    .service-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+      vertical-align: -6px;
+      flex: 0 0 24px;
+    }
+
+    .service-name {
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .service-name.name-orange { color: var(--accent); }
+    .service-name.name-blue { color: var(--blue); }
+    .service-name.name-green { color: var(--green); }
+    .service-name.name-gold { color: var(--gold); }
+
+    .db-type {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 0.12rem 0.48rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      vertical-align: 2px;
+      color: #7c2d12;
+      background: #ffedd5;
+    }
+
+    .service-desc {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+    }
+
+    .service-example {
+      display: block;
+      margin-top: 6px;
+      color: #7c3f00;
+      font-size: 0.94rem;
+    }
+
+    .note {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+
+    .extra-services {
+      margin-top: 22px;
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #fffaf2 0%, #ffffff 100%);
+    }
+
+    .extra-services h3 {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 1.14rem;
+    }
+
+    .extra-service-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 14px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .extra-service-list li {
+      margin: 0;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid #f1e6d7;
+      background: white;
+    }
+
+    @media (max-width: 980px) {
+      .grid.two, .grid.three, .service-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .hero, .section {
+        padding: 22px;
+      }
+    }
+
+    @page {
+      size: A4;
+      margin: 14mm;
+    }
+
+    @media print {
+      html, body {
+        background: #ffffff !important;
+      }
+
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+      }
+
+      .hero,
+      .section,
+      .domain-block,
+      .topic-card,
+      .card,
+      .service-group,
+      .extra-services,
+      .service-group li,
+      .extra-service-list li {
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .hero {
+        border-radius: 20px;
+      }
+
+      .section {
+        margin-top: 14px;
+      }
+
+      .service-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px;
+        align-items: start;
+      }
+
+      .service-group {
+        margin: 0;
+      }
+
+      .hero-actions {
+        display: none !important;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">AWS Certified Cloud Practitioner • CLF-C02</p>
+      <h1>Mathias AWS Cloud Practitioner Revision</h1>
+      <p>
+        This page is rebuilt around the official AWS Cloud Practitioner exam guide, the official Technologies and Concepts list, and the official In-Scope AWS Services list. The domain principles come directly from the CLF-C02 blueprint, and the service section follows AWS’s own exam categories.
+      </p>
+      <div class="hero-actions">
+        <button class="print-button" type="button" onclick="window.print()">Download PDF</button>
+        <span class="print-hint">Opens the print dialog so you can save a well-formatted PDF.</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Official AWS Sources</h2>
+      <p class="intro">
+        These are the primary official AWS pages used to structure this revision sheet.
+      </p>
+      <ul class="source-list">
+        <li><a href="https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html" target="_blank" rel="noopener noreferrer">CLF-C02 exam guide</a></li>
+        <li><a href="https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html" target="_blank" rel="noopener noreferrer">Content Domain 1: Cloud Concepts</a></li>
+        <li><a href="https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html" target="_blank" rel="noopener noreferrer">Content Domain 2: Security and Compliance</a></li>
+        <li><a href="https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html" target="_blank" rel="noopener noreferrer">Content Domain 3: Cloud Technology and Services</a></li>
+        <li><a href="https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html" target="_blank" rel="noopener noreferrer">Content Domain 4: Billing, Pricing, and Support</a></li>
+        <li><a href="https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-technologies-concepts.html" target="_blank" rel="noopener noreferrer">Technologies and Concepts</a></li>
+        <li><a href="https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html" target="_blank" rel="noopener noreferrer">In-Scope AWS Services</a></li>
+        <li><a href="https://aws.amazon.com/architecture/icons/" target="_blank" rel="noopener noreferrer">AWS Architecture Icons</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Official Principles and Core Ideas</h2>
+      <p class="intro">
+        These topic blocks are based directly on the four official CLF-C02 domain pages. Each task includes a short study description plus the main knowledge and skill points AWS calls out.
+      </p>
+      <div class="grid">
+        <article class="domain-block domain-1">
+          <h3 class="domain-title">Content Domain 1: Cloud Concepts</h3>
+          <div class="topic-card">
+            <h4>Task Statement 1.1: Define the benefits of the AWS Cloud</h4>
+            <p>
+              The <span class="keyword k-orange">value proposition</span> of AWS connects cloud adoption with <strong>global infrastructure</strong>, <strong>speed of deployment</strong>, <strong>global reach</strong>, <strong>high availability</strong>, <strong>elasticity</strong>, and <strong>agility</strong>.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 1.2: Identify design principles of the AWS Cloud</h4>
+            <p>
+              The <span class="keyword k-orange">AWS Well-Architected Framework</span> is organized around six pillars:
+              <strong>Operational Excellence</strong>, <strong>Security</strong>, <strong>Reliability</strong>, <strong>Performance Efficiency</strong>, <strong>Cost Optimization</strong>, and <strong>Sustainability</strong>.
+              Each pillar highlights a different design priority and together they form AWS’s main architecture reference model.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 1.3: Understand the benefits of and strategies for migration to the AWS Cloud</h4>
+            <p>
+              <span class="keyword k-orange">Cloud adoption strategies</span> and <span class="keyword k-orange">resources that support migration</span> include the <strong>AWS Cloud Adoption Framework (AWS CAF)</strong>, which organizes cloud adoption across business, people, governance, platform, security, and operations perspectives. Migration approaches include <strong>database replication</strong> and offline transfer with <strong><a class="jump-link" href="#service-snowball">AWS Snowball</a></strong>.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 1.4: Understand concepts of cloud economics</h4>
+            <p>
+              <span class="keyword k-orange">Cloud economics</span> includes <strong>fixed versus variable costs</strong>, <strong>on-premises cost considerations</strong>, <strong>licensing strategies</strong> such as Bring Your Own License (BYOL) versus included licenses, <strong>rightsizing</strong>, <strong>benefits of automation</strong>, and <strong>economies of scale</strong>.
+            </p>
+          </div>
+        </article>
+
+        <article class="domain-block domain-2">
+          <h3 class="domain-title">Content Domain 2: Security and Compliance</h3>
+          <div class="topic-card">
+            <h4>Task Statement 2.1: Understand the AWS shared responsibility model</h4>
+            <p>
+              The <span class="keyword k-blue">shared responsibility model</span> divides security into <strong>AWS responsibilities</strong> for the cloud and <strong>customer responsibilities</strong> in the cloud. Customers manage items like identities, data, and configuration, while AWS manages the underlying infrastructure. The balance changes with services such as <strong><a class="jump-link" href="#service-rds">Amazon RDS</a></strong>, <strong><a class="jump-link" href="#service-lambda">AWS Lambda</a></strong>, and <strong><a class="jump-link" href="#service-ec2">Amazon EC2</a></strong>.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 2.2: Understand AWS Cloud security, governance, and compliance concepts</h4>
+            <p>
+              <span class="keyword k-blue">Compliance and governance concepts</span>, <span class="keyword k-blue">benefits of cloud security</span> such as encryption, and <span class="keyword k-blue">where security logs are captured</span> form the core of this task. Key ideas include where compliance information is published, how customers secure resources, what <strong>encryption in transit</strong> and <strong>encryption at rest</strong> mean, and which services support monitoring, auditing, governance, and reporting.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 2.3: Identify AWS access management capabilities</h4>
+            <p>
+              <span class="keyword k-blue">Identity and access management</span> includes <strong><a class="jump-link" href="#service-iam">AWS IAM</a></strong>, the <strong>importance of protecting the root user</strong>, the <strong>principle of least privilege</strong>, and <strong><a class="jump-link" href="#service-iam-identity-center">AWS IAM Identity Center</a></strong>. Related points include access keys, password policies, secrets storage, multi-factor authentication (MFA), cross-account roles, groups, custom and managed policies, root-user-only tasks, and federated identity concepts.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 2.4: Identify components and resources for security</h4>
+            <p>
+              <span class="keyword k-blue">Security capabilities</span> and <span class="keyword k-blue">security documentation</span> provided by AWS include services such as <strong><a class="jump-link" href="#service-waf">AWS WAF</a></strong>, <strong><a class="jump-link" href="#service-firewall-manager">AWS Firewall Manager</a></strong>, <strong><a class="jump-link" href="#service-shield">AWS Shield</a></strong>, <strong><a class="jump-link" href="#service-guardduty">Amazon GuardDuty</a></strong>, and <strong><a class="jump-link" href="#service-trusted-advisor">AWS Trusted Advisor</a></strong>, along with security information published through the Knowledge Center and AWS documentation sources.
+            </p>
+          </div>
+        </article>
+
+        <article class="domain-block domain-3">
+          <h3 class="domain-title">Content Domain 3: Cloud Technology and Services</h3>
+          <div class="topic-card">
+            <h4>Task Statement 3.1: Define methods of deploying and operating in the AWS Cloud</h4>
+            <p>
+              <span class="keyword k-green">Ways of provisioning and operating</span> in AWS, <span class="keyword k-green">ways to access AWS services</span>, and <span class="keyword k-green">deployment models</span> include the <strong><a class="jump-link" href="#service-management-console">AWS Management Console</a></strong>, <strong>APIs</strong>, <strong>software development kits (SDKs)</strong>, <strong><a class="jump-link" href="#service-cli">AWS CLI</a></strong>, and <strong>infrastructure as code (IaC)</strong>, along with cloud, hybrid, and on-premises deployment models.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 3.2: Define the AWS global infrastructure</h4>
+            <p>
+              This task includes <span class="keyword k-green">Regions</span>, <span class="keyword k-green">Availability Zones</span>, and <span class="keyword k-green">edge locations</span>. A <strong>Region</strong> is a separate geographic area, an <strong>Availability Zone</strong> is an isolated location inside a Region, and an <strong>edge location</strong> helps deliver content closer to users. Together they support <strong>high availability</strong>, <strong>low latency</strong>, <strong>disaster recovery</strong>, and <strong>data sovereignty</strong>.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 3.3: Identify AWS compute services</h4>
+            <p>
+              <span class="keyword k-green">Compute services</span> include suitable <strong><a class="jump-link" href="#service-ec2">Amazon EC2</a> instance types</strong>, <strong>container services</strong> such as <a class="jump-link" href="#service-ecs">Amazon ECS</a> and <a class="jump-link" href="#service-eks">Amazon EKS</a>, <strong>serverless compute</strong> such as <a class="jump-link" href="#service-fargate">AWS Fargate</a> and <a class="jump-link" href="#service-lambda">AWS Lambda</a>, <strong><a class="jump-link" href="#service-auto-scaling">Auto Scaling</a></strong> for elasticity, and <strong>load balancers</strong> for traffic distribution.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 3.4: Identify AWS database services</h4>
+            <p>
+              <span class="keyword k-green">Database services</span> and <span class="keyword k-green">database migration</span> include the distinction between <strong>EC2-hosted databases</strong> and <strong>managed databases</strong>. <strong>SQL databases</strong> include <a class="jump-link" href="#service-rds">Amazon RDS</a> and <a class="jump-link" href="#service-aurora">Amazon Aurora</a>. <strong>NoSQL databases</strong> include <a class="jump-link" href="#service-dynamodb">Amazon DynamoDB</a>. <strong>Memory-based databases</strong> include <a class="jump-link" href="#service-elasticache">Amazon ElastiCache</a>, and migration tools include <strong><a class="jump-link" href="#service-dms">AWS DMS</a></strong> and <strong><a class="jump-link" href="#service-sct">AWS SCT</a></strong>.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 3.5: Identify AWS network services</h4>
+            <p>
+              <span class="keyword k-green">Network services</span> include <strong><a class="jump-link" href="#service-vpc">virtual private cloud (VPC)</a></strong> components such as subnets and gateways, VPC security concepts such as <strong>network ACLs</strong> and <strong>security groups</strong>, the role of <strong><a class="jump-link" href="#service-route53">Amazon Route 53</a></strong>, and connectivity options such as <strong><a class="jump-link" href="#service-vpn">AWS VPN</a></strong> and <strong><a class="jump-link" href="#service-direct-connect">AWS Direct Connect</a></strong>.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 3.6: Identify AWS storage services</h4>
+            <p>
+              <span class="keyword k-green">Storage services</span> include use cases for <strong>object storage</strong>, differences among <strong><a class="jump-link" href="#service-s3">Amazon S3</a> storage classes</strong>, <strong>block storage</strong> such as <a class="jump-link" href="#service-ebs">Amazon EBS</a> and instance store, <strong>file services</strong> such as <a class="jump-link" href="#service-efs">Amazon EFS</a> and <a class="jump-link" href="#service-fsx">Amazon FSx</a>, cached and hybrid storage options such as <strong><a class="jump-link" href="#service-storage-gateway">AWS Storage Gateway</a></strong>, along with <strong>lifecycle policies</strong> and <strong><a class="jump-link" href="#service-backup">AWS Backup</a></strong>.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 3.7: Identify AWS AI/ML services and analytics services</h4>
+            <p>
+              <span class="keyword k-green">AI/ML services</span> and <span class="keyword k-green">analytics services</span> include the tasks performed by services such as <strong><a class="jump-link" href="#service-sagemaker-ai">Amazon SageMaker AI</a></strong>, <strong><a class="jump-link" href="#service-lex">Amazon Lex</a></strong>, and <strong><a class="jump-link" href="#service-kendra">Amazon Kendra</a></strong>, along with analytics services such as <strong><a class="jump-link" href="#service-athena">Amazon Athena</a></strong>, <strong><a class="jump-link" href="#service-kinesis">Amazon Kinesis</a></strong>, <strong><a class="jump-link" href="#service-glue">AWS Glue</a></strong>, and <strong><a class="jump-link" href="#service-quicksight">Amazon QuickSight</a></strong>.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 3.8: Identify services from other in-scope AWS service categories</h4>
+            <p>
+              This task includes additional in-scope categories such as <span class="keyword k-green">application integration</span>, <span class="keyword k-green">business applications</span>, <span class="keyword k-green">customer enablement</span>, <span class="keyword k-green">developer tools</span>, <span class="keyword k-green">end-user computing</span>, <span class="keyword k-green">frontend web and mobile</span>, and <span class="keyword k-green">Internet of Things (IoT)</span>. The core idea is matching the right service to messaging, alerts, support, development, frontend delivery, end-user access, and IoT device management.
+            </p>
+          </div>
+        </article>
+
+        <article class="domain-block domain-4">
+          <h3 class="domain-title">Content Domain 4: Billing, Pricing, and Support</h3>
+          <div class="topic-card">
+            <h4>Task Statement 4.1: Compare AWS pricing models</h4>
+            <p>
+              <span class="keyword k-gold">Compute purchasing options</span> and <span class="keyword k-gold">storage pricing options</span> include <strong>On-Demand Instances</strong> for short-term flexibility, <strong>Reserved Instances</strong> for steady workloads, <strong>Spot Instances</strong> for interruption-tolerant workloads, <strong>AWS Savings Plans</strong> for discounted usage commitments, <strong>Dedicated Hosts</strong> and <strong>Dedicated Instances</strong> for isolation needs, and <strong>Capacity Reservations</strong> for guaranteed EC2 capacity. Related pricing points include <strong>Reserved Instance flexibility</strong>, how Reserved Instances behave in <strong><a class="jump-link" href="#service-organizations">AWS Organizations</a></strong>, data transfer pricing, and differences among storage tiers.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 4.2: Understand resources for billing, budget, and cost management</h4>
+            <p>
+              <span class="keyword k-gold">Billing information</span>, <span class="keyword k-gold">pricing information</span>, <span class="keyword k-gold"><a class="jump-link" href="#service-organizations">AWS Organizations</a></span>, and <span class="keyword k-gold">cost allocation tags</span> form the core of this task. Important tools include <strong><a class="jump-link" href="#service-budgets">AWS Budgets</a></strong>, <strong><a class="jump-link" href="#service-cost-explorer">AWS Cost Explorer</a></strong>, and <strong><a class="jump-link" href="#service-pricing-calculator">AWS Pricing Calculator</a></strong>, along with consolidated billing and the role of cost allocation tags in reports such as the <strong><a class="jump-link" href="#service-cost-usage-report">AWS Cost and Usage Report</a></strong>.
+            </p>
+          </div>
+          <div class="topic-card">
+            <h4>Task Statement 4.3: Identify AWS technical resources and AWS Support options</h4>
+            <p>
+              <span class="keyword k-gold">Official AWS documentation and resources</span>, <span class="keyword k-gold">AWS Support plans</span>, <span class="keyword k-gold">AWS Support Center</span>, the <span class="keyword k-gold">AWS Partner Network</span>, and AWS experts define this task. Relevant resources include <strong>whitepapers</strong>, <strong>blogs</strong>, <strong>documentation</strong>, <strong>AWS Prescriptive Guidance</strong>, <strong>AWS Knowledge Center</strong>, and <strong>AWS re:Post</strong>. Support options include <strong>Developer Support</strong> with <strong>technical guidance for development and test</strong>, <strong>Business Support</strong> with <strong>24/7 access to AWS experts</strong> and the <strong>full set of AWS Trusted Advisor checks</strong>, <strong>Enterprise On-Ramp Support</strong> with a <strong>Technical Account Manager (TAM)</strong> for growing business-critical workloads, and <strong>Enterprise Support</strong> with a <strong>designated TAM</strong> and the most <strong>proactive guidance</strong> for enterprise environments. Current AWS Support pages emphasize <strong>account and billing support</strong>, <strong>AWS Trusted Advisor</strong>, and <strong>TAM guidance</strong> as key plan differences. This task also includes the roles of <strong><a class="jump-link" href="#service-support">AWS Support</a></strong>, <strong><a class="jump-link" href="#service-trusted-advisor">AWS Trusted Advisor</a></strong>, <strong><a class="jump-link" href="#service-health-dashboard">AWS Health Dashboard</a></strong>, <strong><a class="jump-link" href="#service-health-api">AWS Health API</a></strong>, <strong><a class="jump-link" href="#service-marketplace">AWS Marketplace</a></strong>, <strong>AWS Professional Services</strong>, and <strong>AWS Solutions Architects</strong>.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Official Technologies and Concepts</h2>
+      <div class="grid two">
+        <article class="card theme-orange">
+          <h3>Architecture and Build</h3>
+          <ul>
+            <li><span class="keyword k-orange">APIs</span>: programmatic interfaces for AWS operations.</li>
+            <li><span class="keyword k-orange">Infrastructure as code (IaC)</span>: define infrastructure with templates.</li>
+            <li><span class="keyword k-orange">AWS SDKs</span>: developer libraries for AWS services.</li>
+            <li><span class="keyword k-orange">AWS Well-Architected Framework</span>: best-practice design guidance.</li>
+            <li><span class="keyword k-orange">Compute</span>: processing workloads in the cloud.</li>
+            <li><span class="keyword k-orange">Databases</span>: managed and self-managed data stores.</li>
+            <li><span class="keyword k-orange">Storage</span>: object, block, file, and archive storage.</li>
+            <li><span class="keyword k-orange">Network services</span>: connectivity, routing, and delivery services.</li>
+          </ul>
+        </article>
+
+        <article class="card theme-blue">
+          <h3>Cloud and Migration</h3>
+          <ul>
+            <li><span class="keyword k-blue">Benefits of migrating to the AWS Cloud</span>: gain agility, scalability, and reach.</li>
+            <li><span class="keyword k-blue">AWS Cloud Adoption Framework (AWS CAF)</span>: structure cloud transformation planning.</li>
+            <li><span class="keyword k-blue">Migration and data transfer</span>: move servers, databases, and files to AWS.</li>
+            <li><span class="keyword k-blue">AWS global infrastructure</span>: Regions and Availability Zones support resiliency.</li>
+            <li><span class="keyword k-blue">Amazon EC2 instance types</span>: match compute size and pricing to workloads.</li>
+            <li><span class="keyword k-blue">Machine learning</span>: use AI/ML services for predictions and automation.</li>
+            <li><span class="keyword k-blue">Management and governance</span>: monitor, control, and govern AWS resources.</li>
+          </ul>
+        </article>
+
+        <article class="card theme-green">
+          <h3>Security and Cost</h3>
+          <ul>
+            <li><span class="keyword k-green">Security</span>: protect identities, data, and workloads.</li>
+            <li><span class="keyword k-green">AWS shared responsibility model</span>: AWS secures the cloud; customers secure what they run.</li>
+            <li><span class="keyword k-green">AWS Compliance</span>: compliance programs and audit resources.</li>
+            <li><span class="keyword k-green">AWS Security Blog</span>: official AWS security updates and guidance.</li>
+            <li><span class="keyword k-green">Cost management</span>: monitor and optimize cloud spending.</li>
+            <li><span class="keyword k-green">AWS Pricing Calculator</span>: estimate cost before deployment.</li>
+          </ul>
+        </article>
+
+        <article class="card theme-gold">
+          <h3>Support and Guidance</h3>
+          <ul>
+            <li><span class="keyword k-gold">AWS Knowledge Center</span>: official troubleshooting articles.</li>
+            <li><span class="keyword k-gold">AWS Prescriptive Guidance</span>: strategies, patterns, and implementation guidance.</li>
+            <li><span class="keyword k-gold">AWS re:Post</span>: community and AWS knowledge Q&amp;A.</li>
+            <li><span class="keyword k-gold">AWS Support Center</span>: place to manage support cases.</li>
+            <li><span class="keyword k-gold">AWS Support plans</span>: <strong>Business</strong> adds <strong>24/7 expert access</strong> and <strong>AWS Trusted Advisor</strong>, <strong>Enterprise On-Ramp</strong> adds a <strong>Technical Account Manager (TAM)</strong>, and <strong>Enterprise</strong> provides the deepest <strong>proactive TAM guidance</strong>.</li>
+            <li><span class="keyword k-gold">AWS Partner Network (APN)</span>: AWS partner ecosystem.</li>
+            <li><span class="keyword k-gold">AWS Professional Services</span>: AWS expert delivery support.</li>
+            <li><span class="keyword k-gold">AWS solutions architects</span>: AWS design and architecture guidance.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Official In-Scope AWS Services</h2>
+      <p class="intro">
+        The categories below follow the official CLF-C02 in-scope services page. Descriptions are concise study notes written in official AWS style so the page stays readable. Icons come from the official AWS Architecture Icons package when AWS provides a dedicated icon for that service or tool.
+      </p>
+      <div class="service-columns">
+        <article class="service-group analytics">
+          <h3>Analytics</h3>
+          <ul>
+            <li id="service-athena"><span class="service-name name-orange">Amazon Athena</span><span class="service-desc"><strong>Interactive query</strong> service for analyzing data in Amazon Simple Storage Service (Amazon S3) with SQL.</span><span class="service-example">Example: run SQL queries directly on log files stored in Amazon S3.</span></li>
+            <li><span class="service-name name-orange">Amazon EMR</span><span class="service-desc"><strong>Cloud big data</strong> platform for processing large datasets with frameworks such as Apache Spark and Hadoop.</span><span class="service-example">Example: process clickstream data with Apache Spark clusters.</span></li>
+            <li id="service-glue"><span class="service-name name-orange">AWS Glue</span><span class="service-desc"><strong>Serverless data integration</strong> service for discovering, preparing, moving, and combining data.</span><span class="service-example">Example: prepare raw CSV data before loading it into a warehouse.</span></li>
+            <li id="service-kinesis"><span class="service-name name-orange">Amazon Kinesis</span><span class="service-desc"><strong>Streaming</strong> service for collecting, processing, and analyzing real-time data.</span><span class="service-example">Example: capture sensor data from devices in real time.</span></li>
+            <li><span class="service-name name-orange">Amazon OpenSearch Service</span><span class="service-desc"><strong>Managed search</strong> service for search, log analytics, and observability use cases.</span><span class="service-example">Example: search application logs to troubleshoot production errors.</span></li>
+            <li id="service-quicksight"><span class="service-name name-orange">Amazon QuickSight</span><span class="service-desc"><strong>Business intelligence</strong> service for dashboards, analytics, and visual insights.</span><span class="service-example">Example: create a dashboard for monthly sales performance.</span></li>
+            <li><span class="service-name name-orange">Amazon Redshift</span><span class="service-desc"><strong>Data warehouse</strong> service designed for large-scale analytics.</span><span class="service-example">Example: analyze years of reporting data across business units.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group integration">
+          <h3>Application Integration</h3>
+          <ul>
+            <li><span class="service-name name-blue">Amazon EventBridge</span><span class="service-desc"><strong>Serverless event bus</strong> service for routing events between applications and AWS services.</span><span class="service-example">Example: trigger a workflow when an Amazon EC2 instance changes state.</span></li>
+            <li><span class="service-name name-blue">Amazon Simple Notification Service (Amazon SNS)</span><span class="service-desc"><strong>Pub/sub messaging</strong> service for fan-out notifications and event delivery.</span><span class="service-example">Example: send one alarm to email, SMS, and another system at the same time.</span></li>
+            <li><span class="service-name name-blue">Amazon Simple Queue Service (Amazon SQS)</span><span class="service-desc"><strong>Message queue</strong> service for decoupling distributed application components.</span><span class="service-example">Example: queue orders before downstream processing.</span></li>
+            <li><span class="service-name name-blue">AWS Step Functions</span><span class="service-desc"><strong>Workflow</strong> service for coordinating application components and business processes.</span><span class="service-example">Example: coordinate order validation, payment, and shipment steps.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group business">
+          <h3>Business Applications</h3>
+          <ul>
+            <li><span class="service-name name-green">Amazon Connect</span><span class="service-desc"><strong>Cloud contact center</strong> service for customer engagement.</span><span class="service-example">Example: run a customer support call center in the cloud.</span></li>
+            <li><span class="service-name name-green">Amazon Simple Email Service (Amazon SES)</span><span class="service-desc"><strong>Email</strong> service for sending and receiving messages at scale.</span><span class="service-example">Example: send password reset emails from an application.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group finance">
+          <h3>Cloud Financial Management</h3>
+          <ul>
+            <li id="service-budgets"><span class="service-name name-gold">AWS Budgets</span><span class="service-desc"><strong>Budgeting</strong> tool for setting custom cost and usage thresholds with alerts.</span><span class="service-example">Example: get an alert when monthly cost goes above a target amount.</span></li>
+            <li id="service-cost-usage-report"><span class="service-name name-gold">AWS Cost and Usage Reports</span><span class="service-desc"><strong>Detailed billing and usage</strong> reports for analysis and chargeback workflows.</span><span class="service-example">Example: export granular billing data for finance analysis.</span></li>
+            <li id="service-cost-explorer"><span class="service-name name-gold">AWS Cost Explorer</span><span class="service-desc"><strong>Cost analysis</strong> tool for visualizing usage and spend trends.</span><span class="service-example">Example: compare last month’s Amazon EC2 cost with this month’s.</span></li>
+            <li id="service-marketplace"><span class="service-name name-gold">AWS Marketplace</span><span class="service-desc"><strong>Digital catalog</strong> for finding, testing, and buying third-party software and services.</span><span class="service-example">Example: subscribe to a third-party security product.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group compute">
+          <h3>Compute</h3>
+          <ul>
+            <li><span class="service-name name-orange">AWS Batch</span><span class="service-desc"><strong>Batch computing</strong> service for running large numbers of jobs.</span><span class="service-example">Example: process nightly rendering or scientific jobs.</span></li>
+            <li id="service-ec2"><span class="service-name name-orange">Amazon Elastic Compute Cloud (Amazon EC2)</span><span class="service-desc"><strong>Secure and resizable compute capacity</strong> in the cloud.</span><span class="service-example">Example: run a Linux web server with full operating system control.</span></li>
+            <li><span class="service-name name-orange">AWS Elastic Beanstalk</span><span class="service-desc"><strong>Application deployment</strong> service for quickly deploying and scaling web applications.</span><span class="service-example">Example: deploy a web app without manually building all supporting infrastructure.</span></li>
+            <li><span class="service-name name-orange">Amazon Lightsail</span><span class="service-desc"><strong>Simplified virtual private server</strong> service for websites, apps, and development environments.</span><span class="service-example">Example: launch a small WordPress website quickly.</span></li>
+            <li><span class="service-name name-orange">AWS Outposts</span><span class="service-desc"><strong>AWS infrastructure on premises</strong> for hybrid deployments.</span><span class="service-example">Example: run AWS services in a local data center for low-latency needs.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group containers">
+          <h3>Containers</h3>
+          <ul>
+            <li><span class="service-name name-blue">Amazon Elastic Container Registry (Amazon ECR)</span><span class="service-desc"><strong>Container image registry</strong> for storing, managing, and deploying container images.</span><span class="service-example">Example: store Docker images before deployment.</span></li>
+            <li id="service-ecs"><span class="service-name name-blue">Amazon Elastic Container Service (Amazon ECS)</span><span class="service-desc"><strong>Container orchestration</strong> service for running and scaling containerized applications.</span><span class="service-example">Example: run microservices in containers without managing Kubernetes.</span></li>
+            <li id="service-eks"><span class="service-name name-blue">Amazon Elastic Kubernetes Service (Amazon EKS)</span><span class="service-desc"><strong>Managed Kubernetes</strong> service for running Kubernetes on AWS.</span><span class="service-example">Example: operate Kubernetes workloads for a production platform.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group enablement">
+          <h3>Customer Enablement</h3>
+          <ul>
+            <li id="service-support"><span class="service-name name-green">AWS Support</span><span class="service-desc"><strong>Technical support</strong> service with plan-based access to help and guidance.</span><span class="service-example">Example: open a support case for a production issue.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group database">
+          <h3>Database</h3>
+          <ul>
+            <li id="service-aurora"><span class="service-name name-gold">Amazon Aurora</span><span class="db-type">SQL</span><span class="service-desc"><strong>Relational database</strong> built for performance and availability in the cloud.</span><span class="service-example">Example: run a high-availability MySQL-compatible production database.</span></li>
+            <li><span class="service-name name-gold">Amazon DocumentDB</span><span class="db-type">NoSQL</span><span class="service-desc"><strong>Document database</strong> service with MongoDB compatibility.</span><span class="service-example">Example: store product catalog documents in JSON-like form.</span></li>
+            <li id="service-dynamodb"><span class="service-name name-gold">Amazon DynamoDB</span><span class="db-type">NoSQL</span><span class="service-desc"><strong>Serverless NoSQL database</strong> for key-value and document workloads.</span><span class="service-example">Example: store shopping cart sessions at scale.</span></li>
+            <li id="service-elasticache"><span class="service-name name-gold">Amazon ElastiCache</span><span class="db-type">In-memory</span><span class="service-desc"><strong>In-memory caching</strong> service for accelerating applications.</span><span class="service-example">Example: cache frequent database reads to reduce latency.</span></li>
+            <li><span class="service-name name-gold">Amazon Neptune</span><span class="db-type">Graph</span><span class="service-desc"><strong>Graph database</strong> service for highly connected data.</span><span class="service-example">Example: model social relationships or recommendation links.</span></li>
+            <li id="service-rds"><span class="service-name name-gold">Amazon Relational Database Service (Amazon RDS)</span><span class="db-type">SQL</span><span class="service-desc"><strong>Managed relational database</strong> service that simplifies setup, operation, and scaling.</span><span class="service-example">Example: run PostgreSQL without handling backups manually.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group devtools">
+          <h3>Developer Tools</h3>
+          <ul>
+            <li id="service-cli"><span class="service-name name-orange">AWS Command Line Interface (AWS CLI)</span><span class="service-desc"><strong>Command line tool</strong> for interacting with AWS services.</span><span class="service-example">Example: list Amazon S3 buckets from a terminal.</span></li>
+            <li><span class="service-name name-orange">AWS CodeBuild</span><span class="service-desc"><strong>Build service</strong> for compiling source code, running tests, and producing software packages.</span><span class="service-example">Example: run tests automatically after every code push.</span></li>
+            <li><span class="service-name name-orange">AWS CodePipeline</span><span class="service-desc"><strong>Continuous delivery</strong> service for automating release pipelines.</span><span class="service-example">Example: automate build, test, and deployment stages.</span></li>
+            <li><span class="service-name name-orange">AWS X-Ray</span><span class="service-desc"><strong>Distributed tracing</strong> service for analyzing applications and requests.</span><span class="service-example">Example: trace a slow request across microservices.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group enduser">
+          <h3>End User Computing</h3>
+          <ul>
+            <li id="service-appstream-2-0"><span class="service-name name-blue">Amazon AppStream 2.0</span><span class="service-desc"><strong>Application streaming</strong> service for delivering desktop applications to users.</span><span class="service-example">Example: stream a design application to remote users.</span></li>
+            <li><span class="service-name name-blue">Amazon WorkSpaces</span><span class="service-desc"><strong>Managed virtual desktop</strong> service.</span><span class="service-example">Example: give employees cloud desktops instead of physical PCs.</span></li>
+            <li id="service-workspaces-secure-browser"><span class="service-name name-blue">Amazon WorkSpaces Secure Browser</span><span class="service-desc"><strong>Secure browser</strong> service for protected web access.</span><span class="service-example">Example: let contractors use only browser-based access to internal tools.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group frontend">
+          <h3>Frontend Web and Mobile</h3>
+          <ul>
+            <li><span class="service-name name-green">AWS Amplify</span><span class="service-desc"><strong>Development platform</strong> for building and hosting full-stack web and mobile applications.</span><span class="service-example">Example: host a front end with authentication and API integration.</span></li>
+            <li id="service-appsync"><span class="service-name name-green">AWS AppSync</span><span class="service-desc"><strong>Managed GraphQL</strong> service with real-time and offline capabilities.</span><span class="service-example">Example: power a mobile app backend with a GraphQL API.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group iot">
+          <h3>Internet of Things (IoT)</h3>
+          <ul>
+            <li><span class="service-name name-gold">AWS IoT Core</span><span class="service-desc"><strong>Managed device connectivity</strong> service for connecting and managing Internet of Things devices securely at scale.</span><span class="service-example">Example: connect factory sensors to AWS securely.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group ml">
+          <h3>Machine Learning</h3>
+          <ul>
+            <li><span class="service-name name-orange">Amazon Comprehend</span><span class="service-desc"><strong>Natural language processing</strong> service for extracting insights from text.</span><span class="service-example">Example: detect sentiment in customer reviews.</span></li>
+            <li id="service-kendra"><span class="service-name name-orange">Amazon Kendra</span><span class="service-desc"><strong>Intelligent search</strong> service for enterprise content.</span><span class="service-example">Example: search across company documents and FAQs.</span></li>
+            <li id="service-lex"><span class="service-name name-orange">Amazon Lex</span><span class="service-desc"><strong>Conversational interface</strong> service for chatbots and voice assistants.</span><span class="service-example">Example: build a chatbot for booking appointments.</span></li>
+            <li><span class="service-name name-orange">Amazon Polly</span><span class="service-desc"><strong>Text-to-speech</strong> service that turns text into lifelike speech.</span><span class="service-example">Example: convert article text into spoken audio.</span></li>
+            <li><span class="service-name name-orange">Amazon Q</span><span class="service-desc"><strong>Generative artificial intelligence assistant</strong> for AWS and business use cases.</span><span class="service-example">Example: ask natural-language questions about AWS tasks.</span></li>
+            <li><span class="service-name name-orange">Amazon Rekognition</span><span class="service-desc"><strong>Image and video analysis</strong> service.</span><span class="service-example">Example: detect objects in uploaded pictures.</span></li>
+            <li id="service-sagemaker-ai"><span class="service-name name-orange">Amazon SageMaker AI</span><span class="service-desc"><strong>Machine learning</strong> service for building, training, and deploying models.</span><span class="service-example">Example: train a churn prediction model.</span></li>
+            <li><span class="service-name name-orange">Amazon Textract</span><span class="service-desc"><strong>Document text extraction</strong> service for forms, tables, and scanned content.</span><span class="service-example">Example: extract data from scanned invoices.</span></li>
+            <li><span class="service-name name-orange">Amazon Transcribe</span><span class="service-desc"><strong>Automatic speech recognition</strong> service that converts speech to text.</span><span class="service-example">Example: turn a call recording into searchable text.</span></li>
+            <li><span class="service-name name-orange">Amazon Translate</span><span class="service-desc"><strong>Neural machine translation</strong> service.</span><span class="service-example">Example: translate product descriptions into another language.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group management">
+          <h3>Management and Governance</h3>
+          <ul>
+            <li id="service-auto-scaling"><span class="service-name name-blue">AWS Auto Scaling</span><span class="service-desc"><strong>Scaling</strong> service that automatically adjusts capacity to maintain performance and cost efficiency.</span><span class="service-example">Example: add more Amazon EC2 instances when traffic rises.</span></li>
+            <li><span class="service-name name-blue">AWS CloudFormation</span><span class="service-desc"><strong>Infrastructure as code</strong> service for modeling and provisioning AWS resources.</span><span class="service-example">Example: create a network stack from a template.</span></li>
+            <li><span class="service-name name-blue">AWS CloudTrail</span><span class="service-desc"><strong>Governance and audit</strong> service that records account activity and application programming interface (API) actions.</span><span class="service-example">Example: identify who deleted a security group.</span></li>
+            <li><span class="service-name name-blue">Amazon CloudWatch</span><span class="service-desc"><strong>Monitoring</strong> service for metrics, logs, alarms, and events.</span><span class="service-example">Example: create an alarm for high CPU usage.</span></li>
+            <li><span class="service-name name-blue">AWS Compute Optimizer</span><span class="service-desc"><strong>Optimization</strong> service that recommends right-sized AWS resources.</span><span class="service-example">Example: get advice to move to a smaller instance size.</span></li>
+            <li><span class="service-name name-blue">AWS Config</span><span class="service-desc"><strong>Configuration tracking</strong> service for resource inventory, history, and compliance.</span><span class="service-example">Example: detect whether a bucket became publicly accessible.</span></li>
+            <li><span class="service-name name-blue">AWS Control Tower</span><span class="service-desc"><strong>Multi-account governance</strong> service for setting up and managing AWS environments.</span><span class="service-example">Example: apply guardrails to a new organization setup.</span></li>
+            <li id="service-health-dashboard"><span class="service-name name-blue">AWS Health Dashboard</span><span class="service-desc"><strong>Health visibility</strong> service for account-specific and service events.</span><span class="service-example">Example: see whether an AWS issue affects your account.</span></li>
+            <li><span class="service-name name-blue">AWS License Manager</span><span class="service-desc"><strong>License management</strong> service for tracking and controlling software licenses.</span><span class="service-example">Example: manage Microsoft license usage on compute resources.</span></li>
+            <li id="service-management-console"><span class="service-name name-blue">AWS Management Console</span><span class="service-desc"><strong>Web console</strong> for managing AWS resources in a browser.</span><span class="service-example">Example: create an Amazon S3 bucket from the console.</span></li>
+            <li id="service-organizations"><span class="service-name name-blue">AWS Organizations</span><span class="service-desc"><strong>Account management</strong> service for centrally governing multiple AWS accounts.</span><span class="service-example">Example: manage billing across several company accounts.</span></li>
+            <li><span class="service-name name-blue">AWS Service Catalog</span><span class="service-desc"><strong>Catalog management</strong> service for approved cloud products and templates.</span><span class="service-example">Example: let teams launch only approved infrastructure products.</span></li>
+            <li id="service-service-quotas"><span class="service-name name-blue">Service Quotas</span><span class="service-desc"><strong>Quota management</strong> feature for viewing and requesting service limit increases.</span><span class="service-example">Example: request a higher Amazon EC2 vCPU limit.</span></li>
+            <li><span class="service-name name-blue">AWS Systems Manager</span><span class="service-desc"><strong>Operations management</strong> service for visibility and control of AWS resources.</span><span class="service-example">Example: patch a fleet of servers centrally.</span></li>
+            <li id="service-trusted-advisor"><span class="service-name name-blue">AWS Trusted Advisor</span><span class="service-desc"><strong>Recommendation</strong> service for cost optimization, security, performance, and resilience.</span><span class="service-example">Example: identify idle resources or open security groups.</span></li>
+            <li><span class="service-name name-blue">AWS Well-Architected Tool</span><span class="service-desc"><strong>Architecture review</strong> service for evaluating workloads against AWS best practices.</span><span class="service-example">Example: review a workload for reliability and cost optimization.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group migration">
+          <h3>Migration and Transfer</h3>
+          <ul>
+            <li id="service-application-discovery-service"><span class="service-name name-green">AWS Application Discovery Service</span><span class="service-desc"><strong>Discovery</strong> service for collecting data from on-premises servers for migration planning.</span><span class="service-example">Example: inventory existing servers before moving workloads.</span></li>
+            <li id="service-application-migration-service"><span class="service-name name-green">AWS Application Migration Service</span><span class="service-desc"><strong>Lift-and-shift migration</strong> service for rehosting servers on AWS.</span><span class="service-example">Example: move an on-premises Windows server to AWS.</span></li>
+            <li id="service-dms"><span class="service-name name-green">AWS Database Migration Service (AWS DMS)</span><span class="service-desc"><strong>Database migration</strong> service for moving databases with minimal downtime.</span><span class="service-example">Example: migrate a production database to Amazon RDS.</span></li>
+            <li id="service-migration-evaluator"><span class="service-name name-green">Migration Evaluator</span><span class="service-desc"><strong>Migration business-case assessment</strong> tool.</span><span class="service-example">Example: estimate savings before migrating from on-premises infrastructure.</span></li>
+            <li id="service-migration-hub"><span class="service-name name-green">AWS Migration Hub</span><span class="service-desc"><strong>Migration tracking</strong> service for monitoring application migrations.</span><span class="service-example">Example: track progress across multiple migration projects.</span></li>
+            <li id="service-sct"><span class="service-name name-green">AWS Schema Conversion Tool (AWS SCT)</span><span class="service-desc"><strong>Schema conversion</strong> tool for heterogeneous database migrations.</span><span class="service-example">Example: convert a schema from SQL Server to PostgreSQL.</span></li>
+            <li id="service-snow-family"><span class="service-name name-green">AWS Snow Family</span><span class="service-desc"><strong>Physical edge and transfer devices</strong> for moving data in and out of AWS.</span><span class="service-example">Example: transfer large datasets when network bandwidth is limited.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group network">
+          <h3>Networking and Content Delivery</h3>
+          <ul>
+            <li><span class="service-name name-gold">Amazon API Gateway</span><span class="service-desc"><strong>API management</strong> service for creating, publishing, and securing APIs.</span><span class="service-example">Example: expose a backend service to a mobile app through an API.</span></li>
+            <li><span class="service-name name-gold">Amazon CloudFront</span><span class="service-desc"><strong>Content delivery network</strong> service for low-latency global delivery.</span><span class="service-example">Example: cache website assets closer to users worldwide.</span></li>
+            <li id="service-direct-connect"><span class="service-name name-gold">AWS Direct Connect</span><span class="service-desc"><strong>Dedicated network connection</strong> service to AWS.</span><span class="service-example">Example: connect a corporate data center directly to AWS.</span></li>
+            <li><span class="service-name name-gold">AWS Global Accelerator</span><span class="service-desc"><strong>Network acceleration</strong> service for improving global application availability and performance.</span><span class="service-example">Example: improve performance for users accessing a global app.</span></li>
+            <li><span class="service-name name-gold">AWS PrivateLink</span><span class="service-desc"><strong>Private connectivity</strong> service for accessing services without public internet exposure.</span><span class="service-example">Example: privately access a service from within a virtual private cloud.</span></li>
+            <li id="service-route53"><span class="service-name name-gold">Amazon Route 53</span><span class="service-desc"><strong>Domain Name System</strong> web service for routing end users to applications.</span><span class="service-example">Example: direct traffic from a domain name to a load balancer.</span></li>
+            <li><span class="service-name name-gold">AWS Transit Gateway</span><span class="service-desc"><strong>Network transit hub</strong> for connecting virtual private clouds (VPCs) and on-premises networks.</span><span class="service-example">Example: connect many VPCs through one central network hub.</span></li>
+            <li id="service-vpc"><span class="service-name name-gold">Amazon Virtual Private Cloud (Amazon VPC)</span><span class="service-desc"><strong>Isolated virtual network</strong> for launching AWS resources.</span><span class="service-example">Example: place databases in private subnets and web servers in public ones.</span></li>
+            <li id="service-vpn"><span class="service-name name-gold">AWS Virtual Private Network (AWS VPN)</span><span class="service-desc"><strong>Encrypted network connection</strong> service between AWS and external networks.</span><span class="service-example">Example: create secure connectivity between your office and AWS.</span></li>
+            <li><span class="service-name name-gold">AWS Site-to-Site VPN</span><span class="service-desc"><strong>Site connection</strong> service for linking on-premises networks to AWS.</span><span class="service-example">Example: connect a branch office network to AWS.</span></li>
+            <li><span class="service-name name-gold">AWS Client VPN</span><span class="service-desc"><strong>Remote access virtual private network</strong> service for end users.</span><span class="service-example">Example: let remote employees securely access internal AWS resources.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group security">
+          <h3>Security, Identity, and Compliance</h3>
+          <ul>
+            <li><span class="service-name name-orange">AWS Artifact</span><span class="service-desc"><strong>Compliance access</strong> service for on-demand AWS security and compliance reports.</span><span class="service-example">Example: download compliance documents for an audit.</span></li>
+            <li><span class="service-name name-orange">AWS Audit Manager</span><span class="service-desc"><strong>Audit evidence</strong> service for collecting and organizing evidence.</span><span class="service-example">Example: gather evidence for an internal compliance review.</span></li>
+            <li><span class="service-name name-orange">AWS Certificate Manager (ACM)</span><span class="service-desc"><strong>Certificate management</strong> service for Secure Sockets Layer / Transport Layer Security (SSL/TLS) certificates.</span><span class="service-example">Example: attach an SSL/TLS certificate to a load balancer.</span></li>
+            <li><span class="service-name name-orange">AWS CloudHSM</span><span class="service-desc"><strong>Hardware security module</strong> service for generating and using encryption keys.</span><span class="service-example">Example: keep encryption keys in dedicated hardware.</span></li>
+            <li><span class="service-name name-orange">Amazon Cognito</span><span class="service-desc"><strong>User identity</strong> service for sign-up, sign-in, and access control in applications.</span><span class="service-example">Example: let users sign in to a mobile application.</span></li>
+            <li><span class="service-name name-orange">Amazon Detective</span><span class="service-desc"><strong>Security investigation</strong> service for analyzing findings and causes.</span><span class="service-example">Example: investigate unusual activity flagged by another security service.</span></li>
+            <li><span class="service-name name-orange">AWS Directory Service</span><span class="service-desc"><strong>Managed directory</strong> service for directory-aware workloads.</span><span class="service-example">Example: connect AWS workloads to Microsoft Active Directory.</span></li>
+            <li id="service-firewall-manager"><span class="service-name name-orange">AWS Firewall Manager</span><span class="service-desc"><strong>Centralized firewall policy management</strong> service across accounts.</span><span class="service-example">Example: apply the same web protection rules in many accounts.</span></li>
+            <li id="service-guardduty"><span class="service-name name-orange">Amazon GuardDuty</span><span class="service-desc"><strong>Threat detection</strong> service for continuous monitoring and malicious activity detection.</span><span class="service-example">Example: detect suspicious API activity in an account.</span></li>
+            <li id="service-iam"><span class="service-name name-orange">AWS Identity and Access Management (AWS IAM)</span><span class="service-desc"><strong>Access management</strong> service for users, roles, and permissions.</span><span class="service-example">Example: create a role for a service to read from a bucket.</span></li>
+            <li id="service-iam-identity-center"><span class="service-name name-orange">AWS IAM Identity Center</span><span class="service-desc"><strong>Centralized workforce access</strong> service for AWS accounts and applications.</span><span class="service-example">Example: let employees sign in once to multiple AWS accounts.</span></li>
+            <li><span class="service-name name-orange">Amazon Inspector</span><span class="service-desc"><strong>Vulnerability management</strong> service for automated security assessments.</span><span class="service-example">Example: scan compute resources for vulnerabilities.</span></li>
+            <li><span class="service-name name-orange">AWS Key Management Service (AWS KMS)</span><span class="service-desc"><strong>Encryption key management</strong> service.</span><span class="service-example">Example: encrypt stored data with customer-managed keys.</span></li>
+            <li><span class="service-name name-orange">Amazon Macie</span><span class="service-desc"><strong>Sensitive data discovery</strong> service for Amazon Simple Storage Service (Amazon S3).</span><span class="service-example">Example: find exposed personal data in storage buckets.</span></li>
+            <li><span class="service-name name-orange">AWS Resource Access Manager (AWS RAM)</span><span class="service-desc"><strong>Resource sharing</strong> service across AWS accounts.</span><span class="service-example">Example: share a network resource across accounts.</span></li>
+            <li><span class="service-name name-orange">AWS Secrets Manager</span><span class="service-desc"><strong>Secret storage</strong> service for credentials and application secrets.</span><span class="service-example">Example: rotate a database password automatically.</span></li>
+            <li><span class="service-name name-orange">AWS Security Hub</span><span class="service-desc"><strong>Security posture management</strong> service that centralizes findings and checks.</span><span class="service-example">Example: review security findings from multiple services in one place.</span></li>
+            <li id="service-shield"><span class="service-name name-orange">AWS Shield</span><span class="service-desc"><strong>Distributed denial of service protection</strong> service.</span><span class="service-example">Example: protect a public-facing application from volumetric attacks.</span></li>
+            <li id="service-waf"><span class="service-name name-orange">AWS Web Application Firewall (AWS WAF)</span><span class="service-desc"><strong>Web traffic filtering</strong> service for protecting web applications.</span><span class="service-example">Example: block common web exploits against an API.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group serverless">
+          <h3>Serverless</h3>
+          <ul>
+            <li id="service-fargate"><span class="service-name name-blue">AWS Fargate</span><span class="service-desc"><strong>Serverless compute engine</strong> for containers.</span><span class="service-example">Example: run containers without provisioning servers.</span></li>
+            <li id="service-lambda"><span class="service-name name-blue">AWS Lambda</span><span class="service-desc"><strong>Serverless compute</strong> service for running code in response to events.</span><span class="service-example">Example: trigger code when a file is uploaded to storage.</span></li>
+          </ul>
+        </article>
+
+        <article class="service-group storage">
+          <h3>Storage</h3>
+          <ul>
+            <li id="service-backup"><span class="service-name name-green">AWS Backup</span><span class="service-desc"><strong>Backup management</strong> service for centralizing and automating backups.</span><span class="service-example">Example: back up multiple services with one central policy.</span></li>
+            <li id="service-ebs"><span class="service-name name-green">Amazon Elastic Block Store (Amazon EBS)</span><span class="service-desc"><strong>Block storage</strong> service for use with Amazon Elastic Compute Cloud (Amazon EC2).</span><span class="service-example">Example: attach persistent storage to a compute instance.</span></li>
+            <li id="service-efs"><span class="service-name name-green">Amazon Elastic File System (Amazon EFS)</span><span class="service-desc"><strong>File storage</strong> service for scalable shared access.</span><span class="service-example">Example: share files across multiple application servers.</span></li>
+            <li><span class="service-name name-green">AWS Elastic Disaster Recovery</span><span class="service-desc"><strong>Disaster recovery</strong> service for rapid recovery of physical, virtual, and cloud-based servers.</span><span class="service-example">Example: recover important servers after a site outage.</span></li>
+            <li id="service-fsx"><span class="service-name name-green">Amazon FSx</span><span class="service-desc"><strong>Managed file system</strong> service for popular file workloads.</span><span class="service-example">Example: run a managed Windows file share.</span></li>
+            <li id="service-s3"><span class="service-name name-green">Amazon Simple Storage Service (Amazon S3)</span><span class="service-desc"><strong>Object storage</strong> service built to store and retrieve any amount of data.</span><span class="service-example">Example: store website assets, backups, or logs.</span></li>
+            <li><span class="service-name name-green">Amazon S3 Glacier</span><span class="service-desc"><strong>Archive storage</strong> option for low-cost long-term data retention.</span><span class="service-example">Example: retain compliance records for years at low cost.</span></li>
+            <li id="service-storage-gateway"><span class="service-name name-green">AWS Storage Gateway</span><span class="service-desc"><strong>Hybrid storage</strong> service for connecting on-premises environments with AWS storage.</span><span class="service-example">Example: link an on-premises backup application to AWS storage.</span></li>
+          </ul>
+        </article>
+      </div>
+      <div class="extra-services">
+        <h3>Domain-Referenced AWS Tools and Additional Services</h3>
+        <p class="intro">
+          These items appear in the official CLF-C02 domain pages, but they are not listed in the official in-scope services table above. Official AWS Architecture Icons are shown where AWS provides a matching icon in the current package.
+        </p>
+        <ul class="extra-service-list">
+          <li id="service-snowball"><span class="service-name name-green">AWS Snowball</span><span class="service-desc"><strong>Data transfer device</strong> used to move large amounts of data into and out of AWS when network transfer is limited or impractical.</span><span class="service-example">Example: ship large backup datasets to AWS instead of uploading them over a slow connection.</span></li>
+          <li id="service-pricing-calculator"><span class="service-name name-gold">AWS Pricing Calculator</span><span class="service-desc"><strong>Cost estimation tool</strong> used to model AWS architectures and estimate expected monthly spend before deployment.</span><span class="service-example">Example: estimate the cost of running a web app with Amazon EC2, Amazon RDS, and Amazon S3.</span></li>
+          <li id="service-health-api"><span class="service-name name-blue">AWS Health API</span><span class="service-desc"><strong>Programmatic health access</strong> for retrieving AWS Health events and account-specific service notifications through code or automation.</span><span class="service-example">Example: pull AWS Health events into an internal operations dashboard.</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <script>
+    const iconDirectoryByGroup = {
+      analytics: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Analytics/32/",
+      integration: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Application-Integration/32/",
+      business: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Business-Applications/32/",
+      finance: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Cloud-Financial-Management/32/",
+      compute: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Compute/32/",
+      containers: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Containers/32/",
+      enablement: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Customer-Enablement/32/",
+      database: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Databases/32/",
+      devtools: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Developer-Tools/32/",
+      enduser: "./aws-icons/Architecture-Service-Icons_01302026/Arch_End-User-Computing/32/",
+      frontend: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Front-End-Web-Mobile/32/",
+      iot: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Internet-of-Things/32/",
+      ml: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Artificial-Intelligence/32/",
+      management: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Management-Tools/32/",
+      migration: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Migration-Modernization/32/",
+      network: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Networking-Content-Delivery/32/",
+      security: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Security-Identity/32/",
+      storage: "./aws-icons/Architecture-Service-Icons_01302026/Arch_Storage/32/"
+    };
+
+    const iconPathOverrides = {
+      "Amazon QuickSight": "./aws-icons/Architecture-Service-Icons_01302026/Arch_Business-Applications/32/Arch_Amazon-Quick-Suite_32.svg",
+      "AWS AppSync": "./aws-icons/Architecture-Service-Icons_01302026/Arch_Application-Integration/32/Arch_AWS-AppSync_32.svg",
+      "AWS Marketplace": "./aws-icons/Architecture-Service-Icons_01302026/Arch_General-Icons/32/Arch_AWS-Marketplace_Light_32.svg",
+      "AWS Fargate": "./aws-icons/Architecture-Service-Icons_01302026/Arch_Containers/32/Arch_AWS-Fargate_32.svg",
+      "AWS Lambda": "./aws-icons/Architecture-Service-Icons_01302026/Arch_Compute/32/Arch_AWS-Lambda_32.svg",
+      "AWS Auto Scaling": "./aws-icons/Architecture-Service-Icons_01302026/Arch_Compute/32/Arch_Amazon-EC2-Auto-Scaling_32.svg",
+      "AWS Outposts": "./aws-icons/Architecture-Service-Icons_01302026/Arch_Compute/32/Arch_AWS-Outposts-family_32.svg",
+      "AWS Snow Family": "./aws-icons/Architecture-Service-Icons_01302026/Arch_Storage/32/Arch_AWS-Snowball_32.svg",
+      "AWS Snowball": "./aws-icons/Architecture-Service-Icons_01302026/Arch_Storage/32/Arch_AWS-Snowball_32.svg",
+      "AWS Database Migration Service (AWS DMS)": "./aws-icons/Architecture-Service-Icons_01302026/Arch_Databases/32/Arch_AWS-Database-Migration-Service_32.svg",
+      "AWS Schema Conversion Tool (AWS SCT)": null,
+      "Amazon AppStream 2.0": null,
+      "Amazon WorkSpaces Secure Browser": "./aws-icons/Architecture-Service-Icons_01302026/Arch_End-User-Computing/32/Arch_Amazon-WorkSpaces_32.svg",
+      "Service Quotas": null,
+      "AWS Pricing Calculator": null,
+      "AWS Health API": null
+    };
+
+    const iconNameOverrides = {
+      "Amazon Elastic Compute Cloud (Amazon EC2)": "Arch_Amazon-EC2_32.svg",
+      "Amazon Elastic File System (Amazon EFS)": "Arch_Amazon-EFS_32.svg",
+      "Amazon Relational Database Service (Amazon RDS)": "Arch_Amazon-RDS_32.svg",
+      "Amazon S3 Glacier": "Arch_Amazon-Simple-Storage-Service-Glacier_32.svg",
+      "AWS Command Line Interface (AWS CLI)": "Arch_AWS-Command-Line-Interface_32.svg",
+      "AWS Cost and Usage Reports": "Arch_AWS-Cost-and-Usage-Report_32.svg",
+      "AWS Identity and Access Management (AWS IAM)": "Arch_AWS-Identity-and-Access-Management_32.svg",
+      "AWS Virtual Private Network (AWS VPN)": "Arch_AWS-Site-to-Site-VPN_32.svg",
+      "AWS Web Application Firewall (AWS WAF)": "Arch_AWS-WAF_32.svg"
+    };
+
+    function resolveServiceIcon(item, name) {
+      if (Object.prototype.hasOwnProperty.call(iconPathOverrides, name)) {
+        return iconPathOverrides[name];
+      }
+
+      const exactFile = iconNameOverrides[name];
+      if (exactFile) {
+        const group = item.closest(".service-group");
+        const groupClass = group ? [...group.classList].find((value) => value !== "service-group") : null;
+        const baseDir = groupClass ? iconDirectoryByGroup[groupClass] : null;
+        return baseDir ? `${baseDir}${exactFile}` : null;
+      }
+
+      const group = item.closest(".service-group");
+      const groupClass = group ? [...group.classList].find((value) => value !== "service-group") : null;
+      const baseDir = groupClass ? iconDirectoryByGroup[groupClass] : null;
+      if (!baseDir) return null;
+
+      const normalizedName = name
+        .replace(/\s*\([^)]*\)\s*/g, "")
+        .replace(/&/g, "and")
+        .replace(/\./g, "-")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-");
+
+      return `${baseDir}Arch_${normalizedName}_32.svg`;
+    }
+
+    document.querySelectorAll(".service-group li, .extra-service-list li").forEach((item) => {
+      const serviceName = item.querySelector(".service-name");
+      if (!serviceName) return;
+
+      const iconSrc = resolveServiceIcon(item, serviceName.textContent.trim());
+      if (!iconSrc) return;
+
+      const icon = document.createElement("img");
+      icon.className = "service-icon";
+      icon.src = iconSrc;
+      icon.alt = `${serviceName.textContent.trim()} icon`;
+      icon.loading = "lazy";
+      icon.onerror = () => icon.remove();
+      item.insertBefore(icon, serviceName);
+    });
+
+    window.addEventListener("beforeprint", () => {
+      document.title = "Mathias_AWS_Cloud_Practitioner_Revision";
+    });
+  </script>
+</body>
+</html>
