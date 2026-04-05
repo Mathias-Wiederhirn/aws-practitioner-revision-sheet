@@ -56,17 +56,64 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 14px;
-      position: sticky;
-      top: 12px;
-      z-index: 40;
-      width: fit-content;
       max-width: 100%;
+    }
+
+    .hero-nav {
+      width: fit-content;
       padding: 10px;
       border-radius: 999px;
       background: rgba(124, 45, 18, 0.18);
       backdrop-filter: blur(14px);
       box-shadow: 0 14px 28px rgba(124, 45, 18, 0.14);
+    }
+
+    .sticky-nav {
+      position: sticky;
+      top: 12px;
+      z-index: 50;
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 14px;
+      padding: 10px 14px;
+      border-radius: 24px;
+      background: rgba(255, 252, 247, 0.9);
+      border: 1px solid rgba(230, 233, 239, 0.9);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    body.nav-stuck .sticky-nav {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .sticky-nav .top-link {
+      color: var(--text);
+      border-color: rgba(226, 232, 240, 0.92);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .sticky-nav .top-link:hover {
+      background: #eff6ff;
+      color: var(--blue);
+    }
+
+    .hero-nav .top-link {
+      padding: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff7ed;
+      font-weight: 700;
+      backdrop-filter: blur(10px);
     }
 
     .top-link {
@@ -533,7 +580,7 @@
         align-items: start;
       }
 
-      .top-strip {
+      .sticky-nav {
         top: 8px;
         border-radius: 24px;
       }
@@ -591,7 +638,8 @@
         margin: 0;
       }
 
-      .hero-actions {
+      .hero-actions,
+      .sticky-nav {
         display: none !important;
       }
 
@@ -604,7 +652,7 @@
 </head>
 <body>
   <main class="page">
-    <div class="top-strip">
+    <div class="top-strip sticky-nav" id="sticky-nav">
       <a class="top-link" href="#domains">Domains</a>
       <a class="top-link" href="#concepts">Concepts</a>
       <a class="top-link" href="#exam-topics">Exam Focus</a>
@@ -618,6 +666,13 @@
       <p>
         This page is rebuilt around the official AWS Cloud Practitioner exam guide, the official Technologies and Concepts list, and the official In-Scope AWS Services list. The domain principles come directly from the CLF-C02 blueprint, and the service section follows AWS’s own exam categories.
       </p>
+      <div class="top-strip hero-nav">
+        <a class="top-link" href="#domains">Domains</a>
+        <a class="top-link" href="#concepts">Concepts</a>
+        <a class="top-link" href="#exam-topics">Exam Focus</a>
+        <a class="top-link" href="#services">Services</a>
+        <a class="top-link" href="#sources">Sources</a>
+      </div>
       <div class="hero-actions">
         <button class="print-button" type="button" onclick="window.print()">Download PDF</button>
         <span class="print-hint">Opens the print dialog so you can save a well-formatted PDF.</span>
@@ -1241,6 +1296,18 @@
       icon.onerror = () => icon.remove();
       item.insertBefore(icon, serviceName);
     });
+
+    const heroSection = document.querySelector(".hero");
+
+    function syncStickyNav() {
+      if (!heroSection) return;
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      document.body.classList.toggle("nav-stuck", heroBottom <= 92);
+    }
+
+    syncStickyNav();
+    window.addEventListener("scroll", syncStickyNav, { passive: true });
+    window.addEventListener("resize", syncStickyNav);
 
     window.addEventListener("beforeprint", () => {
       document.title = "Mathias_AWS_Cloud_Practitioner_Revision";
