@@ -1,2 +1,3 @@
-2026/04/05-19:34:10.495 1b54 Creating DB C:\Scripts\Projects\aws_practitioner_revision_sheet\aws-practitioner-revision-sheet\.edge-headless\Default\Local Storage\leveldb since it was missing.
-2026/04/05-19:34:10.503 1b54 Reusing MANIFEST C:\Scripts\Projects\aws_practitioner_revision_sheet\aws-practitioner-revision-sheet\.edge-headless\Default\Local Storage\leveldb/MANIFEST-000001
+2026/04/05-19:39:14.821 1b78 Reusing MANIFEST C:\Scripts\Projects\aws_practitioner_revision_sheet\aws-practitioner-revision-sheet\.edge-headless\Default\Local Storage\leveldb/MANIFEST-000001
+2026/04/05-19:39:14.824 1b78 Recovering log #3
+2026/04/05-19:39:14.825 1b78 Reusing old log C:\Scripts\Projects\aws_practitioner_revision_sheet\aws-practitioner-revision-sheet\.edge-headless\Default\Local Storage\leveldb/000003.log 

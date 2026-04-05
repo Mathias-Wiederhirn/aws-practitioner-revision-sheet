@@ -1,2 +1,3 @@
-2026/04/05-19:34:10.542 2934 Creating DB C:\Scripts\Projects\aws_practitioner_revision_sheet\aws-practitioner-revision-sheet\.edge-headless\Default\shared_proto_db\metadata since it was missing.
-2026/04/05-19:34:10.546 2934 Reusing MANIFEST C:\Scripts\Projects\aws_practitioner_revision_sheet\aws-practitioner-revision-sheet\.edge-headless\Default\shared_proto_db\metadata/MANIFEST-000001
+2026/04/05-19:39:14.859 5260 Reusing MANIFEST C:\Scripts\Projects\aws_practitioner_revision_sheet\aws-practitioner-revision-sheet\.edge-headless\Default\shared_proto_db\metadata/MANIFEST-000001
+2026/04/05-19:39:14.859 5260 Recovering log #3
+2026/04/05-19:39:14.859 5260 Reusing old log C:\Scripts\Projects\aws_practitioner_revision_sheet\aws-practitioner-revision-sheet\.edge-headless\Default\shared_proto_db\metadata/000003.log 
