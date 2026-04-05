@@ -1251,6 +1251,124 @@
       "AWS Web Application Firewall (AWS WAF)": "Arch_AWS-WAF_32.svg"
     };
 
+    const officialServicePages = {
+      "Amazon Athena": "https://aws.amazon.com/athena/",
+      "Amazon EMR": "https://aws.amazon.com/emr/",
+      "AWS Glue": "https://aws.amazon.com/glue/",
+      "Amazon Kinesis": "https://aws.amazon.com/kinesis/",
+      "Amazon OpenSearch Service": "https://aws.amazon.com/opensearch-service/",
+      "Amazon QuickSight": "https://aws.amazon.com/quicksight/",
+      "Amazon Redshift": "https://aws.amazon.com/redshift/",
+      "Amazon EventBridge": "https://aws.amazon.com/eventbridge/",
+      "Amazon Simple Notification Service (Amazon SNS)": "https://aws.amazon.com/sns/",
+      "Amazon Simple Queue Service (Amazon SQS)": "https://aws.amazon.com/sqs/",
+      "AWS Step Functions": "https://aws.amazon.com/step-functions/",
+      "Amazon Connect": "https://aws.amazon.com/connect/",
+      "Amazon Simple Email Service (Amazon SES)": "https://aws.amazon.com/ses/",
+      "AWS Budgets": "https://aws.amazon.com/aws-cost-management/aws-budgets/",
+      "AWS Cost and Usage Reports": "https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/",
+      "AWS Cost Explorer": "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/",
+      "AWS Marketplace": "https://aws.amazon.com/marketplace/",
+      "AWS Batch": "https://aws.amazon.com/batch/",
+      "Amazon Elastic Compute Cloud (Amazon EC2)": "https://aws.amazon.com/ec2/",
+      "AWS Elastic Beanstalk": "https://aws.amazon.com/elasticbeanstalk/",
+      "Amazon Lightsail": "https://aws.amazon.com/lightsail/",
+      "AWS Outposts": "https://aws.amazon.com/outposts/",
+      "Amazon Elastic Container Registry (Amazon ECR)": "https://aws.amazon.com/ecr/",
+      "Amazon Elastic Container Service (Amazon ECS)": "https://aws.amazon.com/ecs/",
+      "Amazon Elastic Kubernetes Service (Amazon EKS)": "https://aws.amazon.com/eks/",
+      "AWS Support": "https://aws.amazon.com/premiumsupport/",
+      "Amazon Aurora": "https://aws.amazon.com/rds/aurora/",
+      "Amazon DocumentDB": "https://aws.amazon.com/documentdb/",
+      "Amazon DynamoDB": "https://aws.amazon.com/dynamodb/",
+      "Amazon ElastiCache": "https://aws.amazon.com/elasticache/",
+      "Amazon Neptune": "https://aws.amazon.com/neptune/",
+      "Amazon Relational Database Service (Amazon RDS)": "https://aws.amazon.com/rds/",
+      "AWS Command Line Interface (AWS CLI)": "https://aws.amazon.com/cli/",
+      "AWS CodeBuild": "https://aws.amazon.com/codebuild/",
+      "AWS CodePipeline": "https://aws.amazon.com/codepipeline/",
+      "AWS X-Ray": "https://aws.amazon.com/xray/",
+      "Amazon AppStream 2.0": "https://aws.amazon.com/appstream2/",
+      "Amazon WorkSpaces": "https://aws.amazon.com/workspaces/",
+      "Amazon WorkSpaces Secure Browser": "https://aws.amazon.com/workspaces-family/secure-browser/",
+      "AWS Amplify": "https://aws.amazon.com/amplify/",
+      "AWS AppSync": "https://aws.amazon.com/appsync/",
+      "AWS IoT Core": "https://aws.amazon.com/iot-core/",
+      "Amazon Comprehend": "https://aws.amazon.com/comprehend/",
+      "Amazon Kendra": "https://aws.amazon.com/kendra/",
+      "Amazon Lex": "https://aws.amazon.com/lex/",
+      "Amazon Polly": "https://aws.amazon.com/polly/",
+      "Amazon Q": "https://aws.amazon.com/q/",
+      "Amazon Rekognition": "https://aws.amazon.com/rekognition/",
+      "Amazon SageMaker AI": "https://aws.amazon.com/sagemaker/",
+      "Amazon Textract": "https://aws.amazon.com/textract/",
+      "Amazon Transcribe": "https://aws.amazon.com/transcribe/",
+      "Amazon Translate": "https://aws.amazon.com/translate/",
+      "AWS Auto Scaling": "https://aws.amazon.com/autoscaling/",
+      "AWS CloudFormation": "https://aws.amazon.com/cloudformation/",
+      "AWS CloudTrail": "https://aws.amazon.com/cloudtrail/",
+      "Amazon CloudWatch": "https://aws.amazon.com/cloudwatch/",
+      "AWS Compute Optimizer": "https://aws.amazon.com/compute-optimizer/",
+      "AWS Config": "https://aws.amazon.com/config/",
+      "AWS Control Tower": "https://aws.amazon.com/controltower/",
+      "AWS Health Dashboard": "https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/",
+      "AWS License Manager": "https://aws.amazon.com/license-manager/",
+      "AWS Management Console": "https://aws.amazon.com/console/",
+      "AWS Organizations": "https://aws.amazon.com/organizations/",
+      "AWS Service Catalog": "https://aws.amazon.com/servicecatalog/",
+      "Service Quotas": "https://aws.amazon.com/servicequotas/",
+      "AWS Systems Manager": "https://aws.amazon.com/systems-manager/",
+      "AWS Trusted Advisor": "https://aws.amazon.com/premiumsupport/technology/trusted-advisor/",
+      "AWS Well-Architected Tool": "https://aws.amazon.com/architecture/well-architected-tool/",
+      "AWS Application Discovery Service": "https://aws.amazon.com/application-discovery-service/",
+      "AWS Application Migration Service": "https://aws.amazon.com/application-migration-service/",
+      "AWS Database Migration Service (AWS DMS)": "https://aws.amazon.com/dms/",
+      "Migration Evaluator": "https://aws.amazon.com/migration-evaluator/",
+      "AWS Migration Hub": "https://aws.amazon.com/migration-hub/",
+      "AWS Schema Conversion Tool (AWS SCT)": "https://aws.amazon.com/dms/schema-conversion-tool/",
+      "AWS Snow Family": "https://aws.amazon.com/snow/",
+      "Amazon API Gateway": "https://aws.amazon.com/api-gateway/",
+      "Amazon CloudFront": "https://aws.amazon.com/cloudfront/",
+      "AWS Direct Connect": "https://aws.amazon.com/directconnect/",
+      "AWS Global Accelerator": "https://aws.amazon.com/global-accelerator/",
+      "AWS PrivateLink": "https://aws.amazon.com/privatelink/",
+      "Amazon Route 53": "https://aws.amazon.com/route53/",
+      "AWS Transit Gateway": "https://aws.amazon.com/transit-gateway/",
+      "Amazon Virtual Private Cloud (Amazon VPC)": "https://aws.amazon.com/vpc/",
+      "AWS Virtual Private Network (AWS VPN)": "https://aws.amazon.com/vpn/",
+      "AWS Site-to-Site VPN": "https://aws.amazon.com/vpn/site-to-site-vpn/",
+      "AWS Client VPN": "https://aws.amazon.com/vpn/client-vpn/",
+      "AWS Artifact": "https://aws.amazon.com/artifact/",
+      "AWS Audit Manager": "https://aws.amazon.com/audit-manager/",
+      "AWS Certificate Manager (ACM)": "https://aws.amazon.com/certificate-manager/",
+      "AWS CloudHSM": "https://aws.amazon.com/cloudhsm/",
+      "Amazon Cognito": "https://aws.amazon.com/cognito/",
+      "Amazon Detective": "https://aws.amazon.com/detective/",
+      "AWS Directory Service": "https://aws.amazon.com/directoryservice/",
+      "AWS Firewall Manager": "https://aws.amazon.com/firewall-manager/",
+      "Amazon GuardDuty": "https://aws.amazon.com/guardduty/",
+      "AWS Identity and Access Management (AWS IAM)": "https://aws.amazon.com/iam/",
+      "AWS IAM Identity Center": "https://aws.amazon.com/iam/identity-center/",
+      "Amazon Inspector": "https://aws.amazon.com/inspector/",
+      "AWS Key Management Service (AWS KMS)": "https://aws.amazon.com/kms/",
+      "Amazon Macie": "https://aws.amazon.com/macie/",
+      "AWS Resource Access Manager (AWS RAM)": "https://aws.amazon.com/ram/",
+      "AWS Secrets Manager": "https://aws.amazon.com/secrets-manager/",
+      "AWS Security Hub": "https://aws.amazon.com/security-hub/",
+      "AWS Shield": "https://aws.amazon.com/shield/",
+      "AWS Web Application Firewall (AWS WAF)": "https://aws.amazon.com/waf/",
+      "AWS Fargate": "https://aws.amazon.com/fargate/",
+      "AWS Lambda": "https://aws.amazon.com/lambda/",
+      "AWS Backup": "https://aws.amazon.com/backup/",
+      "Amazon Elastic Block Store (Amazon EBS)": "https://aws.amazon.com/ebs/",
+      "Amazon Elastic File System (Amazon EFS)": "https://aws.amazon.com/efs/",
+      "AWS Elastic Disaster Recovery": "https://aws.amazon.com/disaster-recovery/",
+      "Amazon FSx": "https://aws.amazon.com/fsx/",
+      "Amazon Simple Storage Service (Amazon S3)": "https://aws.amazon.com/s3/",
+      "Amazon S3 Glacier": "https://aws.amazon.com/s3/storage-classes/glacier/",
+      "AWS Storage Gateway": "https://aws.amazon.com/storagegateway/"
+    };
+
     function resolveServiceIcon(item, name) {
       if (Object.prototype.hasOwnProperty.call(iconPathOverrides, name)) {
         return iconPathOverrides[name];
@@ -1278,6 +1396,19 @@
 
       return `${baseDir}Arch_${normalizedName}_32.svg`;
     }
+
+    document.querySelectorAll(".services-section .service-group .service-name").forEach((serviceName) => {
+      const url = officialServicePages[serviceName.textContent.trim()];
+      if (!url) return;
+
+      const link = document.createElement("a");
+      link.className = serviceName.className;
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = serviceName.textContent.trim();
+      serviceName.replaceWith(link);
+    });
 
     document.querySelectorAll(".service-group li, .extra-service-list li").forEach((item) => {
       const serviceName = item.querySelector(".service-name");
