@@ -69,26 +69,26 @@
     }
 
     .sticky-nav {
-      position: sticky;
+      position: fixed;
       top: 8px;
       z-index: 50;
-      width: 100%;
+      left: 50%;
+      width: min(1300px, calc(100% - 36px));
       justify-content: center;
-      margin-bottom: 14px;
       padding: 10px;
       border-radius: 999px;
       background: linear-gradient(135deg, #ff9900 0%, #f97316 56%, #ea580c 100%);
       box-shadow: var(--shadow);
       opacity: 0;
       pointer-events: none;
-      transform: translateY(-10px);
+      transform: translate(-50%, -10px);
       transition: opacity 180ms ease, transform 180ms ease;
     }
 
     body.nav-stuck .sticky-nav {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(0);
+      transform: translate(-50%, 0);
     }
 
     .sticky-nav .top-link {
@@ -580,6 +580,7 @@
       .sticky-nav {
         top: 6px;
         border-radius: 999px;
+        width: calc(100% - 20px);
       }
     }
 
