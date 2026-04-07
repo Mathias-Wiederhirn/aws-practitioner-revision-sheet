@@ -231,6 +231,11 @@
       box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.24), 0 22px 44px rgba(249, 115, 22, 0.14);
     }
 
+    .search-match {
+      box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.16);
+      transition: box-shadow 0.2s ease;
+    }
+
     .hero {
       padding: 26px 44px 36px;
       border-radius: 34px;
@@ -1575,6 +1580,9 @@
       )
     ];
     let activeSearchHit = null;
+    let activeSearchMatches = [];
+    let activeSearchQuery = "";
+    let activeSearchIndex = -1;
 
     function setSearchStatus(message) {
       searchStatuses.forEach((status) => {
@@ -1594,6 +1602,13 @@
       activeSearchHit = null;
     }
 
+    function clearSearchMatches() {
+      activeSearchMatches.forEach((match) => match.classList.remove("search-match"));
+      activeSearchMatches = [];
+      activeSearchQuery = "";
+      activeSearchIndex = -1;
+    }
+
     function scrollToResult(element) {
       const stickyNav = document.getElementById("sticky-nav");
       const stickyHeight = document.body.classList.contains("nav-stuck") && stickyNav
@@ -1608,22 +1623,31 @@
       clearSearchHit();
 
       if (!query) {
+        clearSearchMatches();
         setSearchStatus("");
         return;
       }
 
-      const match = searchCandidates.find((candidate) =>
-        candidate.textContent.toLowerCase().includes(query)
-      );
+      if (query !== activeSearchQuery) {
+        clearSearchMatches();
+        activeSearchMatches = searchCandidates.filter((candidate) =>
+          candidate.textContent.toLowerCase().includes(query)
+        );
+        activeSearchMatches.forEach((match) => match.classList.add("search-match"));
+        activeSearchQuery = query;
+        activeSearchIndex = -1;
+      }
 
-      if (!match) {
+      if (!activeSearchMatches.length) {
         setSearchStatus("No match");
         return;
       }
 
+      activeSearchIndex = (activeSearchIndex + 1) % activeSearchMatches.length;
+      const match = activeSearchMatches[activeSearchIndex];
       activeSearchHit = match;
       activeSearchHit.classList.add("search-hit");
-      setSearchStatus("Found");
+      setSearchStatus(`${activeSearchIndex + 1}/${activeSearchMatches.length}`);
       scrollToResult(match);
 
       window.setTimeout(() => {
@@ -1639,6 +1663,7 @@
         syncSearchInputs(event.target.value);
         if (!event.target.value.trim()) {
           clearSearchHit();
+          clearSearchMatches();
           setSearchStatus("");
         }
       });
