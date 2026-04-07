@@ -103,9 +103,17 @@
       color: #fff7ed;
     }
 
+    .top-link.is-active {
+      background: rgba(255, 255, 255, 0.26);
+      border-color: rgba(255, 255, 255, 0.38);
+      color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(255, 237, 213, 0.12);
+    }
+
     .nav-search {
       display: inline-flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
       margin-left: 8px;
     }
@@ -150,8 +158,13 @@
       transform: translateY(-1px);
     }
 
+    .nav-search-button.secondary {
+      padding-inline: 12px;
+      font-weight: 700;
+    }
+
     .nav-search-status {
-      min-width: 78px;
+      min-width: 70px;
       color: #fff7ed;
       font-size: 0.8rem;
       font-weight: 700;
@@ -417,6 +430,57 @@
     .card.theme-green h3 { color: var(--green); }
     .card.theme-gold h3 { color: var(--gold); }
 
+    .exam-tools {
+      margin-top: 16px;
+    }
+
+    .comparison-list,
+    .answer-map,
+    .trap-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .comparison-list li,
+    .answer-map li,
+    .trap-list li {
+      margin: 0 0 12px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.92);
+    }
+
+    .comparison-list li:last-child,
+    .answer-map li:last-child,
+    .trap-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .comparison-title,
+    .trap-title {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .comparison-detail,
+    .trap-detail {
+      display: block;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .trap-detail strong {
+      color: var(--text);
+    }
+
+    .compact-card ul {
+      margin-top: 10px;
+    }
+
     .domain-block {
       padding: 22px;
       border-radius: 22px;
@@ -473,6 +537,30 @@
       color: var(--muted);
       line-height: 1.65;
     }
+
+    .domain-recap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .recap-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      color: var(--text);
+    }
+
+    .domain-1 .recap-chip { color: var(--accent); }
+    .domain-2 .recap-chip { color: var(--blue); }
+    .domain-3 .recap-chip { color: var(--green); }
+    .domain-4 .recap-chip { color: var(--gold); }
 
     .pill {
       display: inline-block;
@@ -695,6 +783,11 @@
       .nav-search-input {
         width: min(240px, 56vw);
       }
+
+      .nav-search-status {
+        width: 100%;
+        text-align: center;
+      }
     }
 
     @page {
@@ -764,14 +857,16 @@
 <body>
   <main class="page">
     <div class="top-strip sticky-nav" id="sticky-nav">
-      <a class="top-link" href="#domains">Domains</a>
-      <a class="top-link" href="#concepts">Concepts</a>
-      <a class="top-link" href="#exam-topics">Exam Focus</a>
-      <a class="top-link" href="#services">Services</a>
-      <a class="top-link" href="#sources">Sources</a>
+      <a class="top-link" href="#domains" data-target="domains">Domains</a>
+      <a class="top-link" href="#concepts" data-target="concepts">Concepts</a>
+      <a class="top-link" href="#exam-topics" data-target="exam-topics">Exam Focus</a>
+      <a class="top-link" href="#services" data-target="services">Services</a>
+      <a class="top-link" href="#sources" data-target="sources">Sources</a>
       <div class="nav-search">
         <input class="nav-search-input" type="search" placeholder="Search site" aria-label="Search site" />
-        <button class="nav-search-button" type="button">Search</button>
+        <button class="nav-search-button" type="button" data-action="next">Search</button>
+        <button class="nav-search-button secondary" type="button" data-action="prev">Prev</button>
+        <button class="nav-search-button secondary" type="button" data-action="clear">Clear</button>
         <span class="nav-search-status" aria-live="polite"></span>
       </div>
     </div>
@@ -783,14 +878,16 @@
         This page is rebuilt around the official AWS Cloud Practitioner exam guide, the official Technologies and Concepts list, and the official In-Scope AWS Services list. The domain principles come directly from the CLF-C02 blueprint, and the service section follows AWS’s own exam categories.
       </p>
       <div class="top-strip hero-nav">
-        <a class="top-link" href="#domains">Domains</a>
-        <a class="top-link" href="#concepts">Concepts</a>
-        <a class="top-link" href="#exam-topics">Exam Focus</a>
-        <a class="top-link" href="#services">Services</a>
-        <a class="top-link" href="#sources">Sources</a>
+        <a class="top-link" href="#domains" data-target="domains">Domains</a>
+        <a class="top-link" href="#concepts" data-target="concepts">Concepts</a>
+        <a class="top-link" href="#exam-topics" data-target="exam-topics">Exam Focus</a>
+        <a class="top-link" href="#services" data-target="services">Services</a>
+        <a class="top-link" href="#sources" data-target="sources">Sources</a>
         <div class="nav-search">
           <input class="nav-search-input" type="search" placeholder="Search site" aria-label="Search site" />
-          <button class="nav-search-button" type="button">Search</button>
+          <button class="nav-search-button" type="button" data-action="next">Search</button>
+          <button class="nav-search-button secondary" type="button" data-action="prev">Prev</button>
+          <button class="nav-search-button secondary" type="button" data-action="clear">Clear</button>
           <span class="nav-search-status" aria-live="polite"></span>
         </div>
       </div>
@@ -813,6 +910,13 @@
       <div class="grid">
         <article class="domain-block domain-1">
           <h3 class="domain-title">Content Domain 1: Cloud Concepts</h3>
+          <div class="domain-recap">
+            <span class="recap-chip">Cloud value proposition</span>
+            <span class="recap-chip">Well-Architected pillars</span>
+            <span class="recap-chip">AWS CAF</span>
+            <span class="recap-chip">Migration strategies</span>
+            <span class="recap-chip">Cloud economics</span>
+          </div>
           <div class="topic-card">
             <h4>Task Statement 1.1: Define the benefits of the AWS Cloud</h4>
             <p>
@@ -843,6 +947,13 @@
 
         <article class="domain-block domain-2">
           <h3 class="domain-title">Content Domain 2: Security and Compliance</h3>
+          <div class="domain-recap">
+            <span class="recap-chip">Shared responsibility</span>
+            <span class="recap-chip">Encryption and compliance</span>
+            <span class="recap-chip">IAM and MFA</span>
+            <span class="recap-chip">Root user protection</span>
+            <span class="recap-chip">Security services</span>
+          </div>
           <div class="topic-card">
             <h4>Task Statement 2.1: Understand the AWS shared responsibility model</h4>
             <p>
@@ -871,6 +982,13 @@
 
         <article class="domain-block domain-3">
           <h3 class="domain-title">Content Domain 3: Cloud Technology and Services</h3>
+          <div class="domain-recap">
+            <span class="recap-chip">Deployment methods</span>
+            <span class="recap-chip">Regions and AZs</span>
+            <span class="recap-chip">Compute and databases</span>
+            <span class="recap-chip">Network and storage</span>
+            <span class="recap-chip">AI/ML and analytics</span>
+          </div>
           <div class="topic-card">
             <h4>Task Statement 3.1: Define methods of deploying and operating in the AWS Cloud</h4>
             <p>
@@ -923,6 +1041,13 @@
 
         <article class="domain-block domain-4">
           <h3 class="domain-title">Content Domain 4: Billing, Pricing, and Support</h3>
+          <div class="domain-recap">
+            <span class="recap-chip">Pricing models</span>
+            <span class="recap-chip">Budgets and Cost Explorer</span>
+            <span class="recap-chip">Pricing Calculator</span>
+            <span class="recap-chip">Support plans</span>
+            <span class="recap-chip">Trusted Advisor</span>
+          </div>
           <div class="topic-card">
             <h4>Task Statement 4.1: Compare AWS pricing models</h4>
             <p>
@@ -1003,6 +1128,96 @@
             <li><span class="keyword k-gold">AWS Partner Network (APN)</span>: AWS partner ecosystem.</li>
             <li><span class="keyword k-gold">AWS Professional Services</span>: AWS expert delivery support.</li>
             <li><span class="keyword k-gold">AWS solutions architects</span>: AWS design and architecture guidance.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="grid two exam-tools">
+        <article class="card theme-gold">
+          <h3>Most Confused Services</h3>
+          <ul class="comparison-list">
+            <li>
+              <span class="comparison-title">AWS CloudTrail vs Amazon CloudWatch</span>
+              <span class="comparison-detail"><strong>AWS CloudTrail</strong> records API calls and account activity, while <strong>Amazon CloudWatch</strong> monitors metrics, logs, and alarms.</span>
+            </li>
+            <li>
+              <span class="comparison-title">AWS CloudHSM vs AWS KMS</span>
+              <span class="comparison-detail"><strong>AWS CloudHSM</strong> gives dedicated hardware security modules, while <strong>AWS KMS</strong> manages encryption keys as a service.</span>
+            </li>
+            <li>
+              <span class="comparison-title">AWS Snowball vs AWS Storage Gateway</span>
+              <span class="comparison-detail"><strong>AWS Snowball</strong> moves very large datasets with physical devices, while <strong>AWS Storage Gateway</strong> links on-premises systems to AWS storage.</span>
+            </li>
+            <li>
+              <span class="comparison-title">Security groups vs Network ACLs</span>
+              <span class="comparison-detail"><strong>Security groups</strong> filter traffic at the instance or ENI level, while <strong>network ACLs</strong> filter traffic at the subnet level.</span>
+            </li>
+            <li>
+              <span class="comparison-title">AWS Trusted Advisor vs Service Quotas</span>
+              <span class="comparison-detail"><strong>AWS Trusted Advisor</strong> provides checks and recommendations, while <strong>Service Quotas</strong> shows and manages quota values directly.</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card theme-green">
+          <h3>Quick Answer Map</h3>
+          <ul class="answer-map">
+            <li><strong>Object storage</strong> = Amazon S3</li>
+            <li><strong>Block storage for Amazon EC2</strong> = Amazon EBS</li>
+            <li><strong>Shared file storage</strong> = Amazon EFS</li>
+            <li><strong>Managed relational database</strong> = Amazon RDS</li>
+            <li><strong>NoSQL database</strong> = Amazon DynamoDB</li>
+            <li><strong>Serverless compute</strong> = AWS Lambda</li>
+            <li><strong>Content delivery</strong> = Amazon CloudFront</li>
+            <li><strong>DNS routing</strong> = Amazon Route 53</li>
+            <li><strong>Petabyte-scale transfer</strong> = AWS Snowball</li>
+            <li><strong>Dedicated HSM</strong> = AWS CloudHSM</li>
+            <li><strong>Compliance reports</strong> = AWS Artifact</li>
+            <li><strong>API activity audit</strong> = AWS CloudTrail</li>
+          </ul>
+        </article>
+      </div>
+      <article class="card theme-orange exam-tools">
+        <h3>Wrong Answer Traps</h3>
+        <ul class="trap-list">
+          <li>
+            <span class="trap-title">Dedicated hardware for key storage</span>
+            <span class="trap-detail"><strong>Correct:</strong> AWS CloudHSM. <strong>Common wrong answer:</strong> AWS KMS.</span>
+          </li>
+          <li>
+            <span class="trap-title">Transfer petabytes of data</span>
+            <span class="trap-detail"><strong>Correct:</strong> AWS Snowball. <strong>Common wrong answer:</strong> AWS Storage Gateway.</span>
+          </li>
+          <li>
+            <span class="trap-title">Firewall at the instance level</span>
+            <span class="trap-detail"><strong>Correct:</strong> Security groups. <strong>Common wrong answer:</strong> Network ACLs.</span>
+          </li>
+          <li>
+            <span class="trap-title">Monitor limits with recommendations</span>
+            <span class="trap-detail"><strong>Correct:</strong> AWS Trusted Advisor. <strong>Common wrong answer:</strong> AWS Pricing Calculator or AWS TCO Calculator.</span>
+          </li>
+          <li>
+            <span class="trap-title">Root user security best practice</span>
+            <span class="trap-detail"><strong>Correct:</strong> Enable MFA. <strong>Common wrong answer:</strong> Create root access keys.</span>
+          </li>
+        </ul>
+      </article>
+      <div class="grid two exam-tools">
+        <article class="card theme-blue compact-card">
+          <h3>Root User and IAM Essentials</h3>
+          <ul>
+            <li><strong>Enable MFA</strong> for the root user.</li>
+            <li><strong>Do not create root access keys</strong> for normal use.</li>
+            <li><strong>Use least privilege</strong> with IAM users, groups, and roles.</li>
+            <li><strong>Use AWS IAM Identity Center</strong> for workforce access when appropriate.</li>
+          </ul>
+        </article>
+        <article class="card theme-blue compact-card">
+          <h3>High Availability Patterns</h3>
+          <ul>
+            <li><strong>Multiple Availability Zones</strong> improve resiliency.</li>
+            <li><strong>Elastic Load Balancing</strong> distributes traffic across targets.</li>
+            <li><strong>Auto Scaling</strong> adjusts capacity as demand changes.</li>
+            <li><strong>A Region</strong> is geographic; <strong>an Availability Zone</strong> is an isolated location inside that Region.</li>
           </ul>
         </article>
       </div>
@@ -1571,12 +1786,16 @@
     window.addEventListener("scroll", syncStickyNav, { passive: true });
     window.addEventListener("resize", syncStickyNav);
 
-    const searchInputs = [...document.querySelectorAll(".nav-search-input")];
-    const searchButtons = [...document.querySelectorAll(".nav-search-button")];
-    const searchStatuses = [...document.querySelectorAll(".nav-search-status")];
+    const navLinks = [...document.querySelectorAll(".top-link[data-target]")];
+    const observedSections = ["domains", "concepts", "exam-topics", "services", "sources"]
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+    const searchBars = [...document.querySelectorAll(".nav-search")];
+    const searchInputs = searchBars.map((bar) => bar.querySelector(".nav-search-input"));
+    const searchStatuses = searchBars.map((bar) => bar.querySelector(".nav-search-status"));
     const searchCandidates = [
       ...document.querySelectorAll(
-        ".task-card, .concept-card, #exam-topics li, .service-group li, .extra-service-list li, #sources li, .section-header"
+        ".topic-card, .concepts-section .card, #exam-topics .card, #exam-topics li, .service-group li, .extra-service-list li, #sources li, .section-header"
       )
     ];
     let activeSearchHit = null;
@@ -1609,6 +1828,12 @@
       activeSearchIndex = -1;
     }
 
+    function updateActiveNav(sectionId) {
+      navLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.dataset.target === sectionId);
+      });
+    }
+
     function scrollToResult(element) {
       const stickyNav = document.getElementById("sticky-nav");
       const elementTop = element.getBoundingClientRect().top + window.scrollY;
@@ -1622,7 +1847,7 @@
       window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
     }
 
-    function runSiteSearch(rawQuery) {
+    function runSiteSearch(rawQuery, direction = 1) {
       const query = rawQuery.trim().toLowerCase();
       clearSearchHit();
 
@@ -1647,7 +1872,9 @@
         return;
       }
 
-      activeSearchIndex = (activeSearchIndex + 1) % activeSearchMatches.length;
+      activeSearchIndex = direction >= 0
+        ? (activeSearchIndex + 1) % activeSearchMatches.length
+        : (activeSearchIndex - 1 + activeSearchMatches.length) % activeSearchMatches.length;
       const match = activeSearchMatches[activeSearchIndex];
       activeSearchHit = match;
       activeSearchHit.classList.add("search-hit");
@@ -1676,17 +1903,50 @@
         if (event.key !== "Enter") return;
         event.preventDefault();
         syncSearchInputs(event.target.value);
-        runSiteSearch(event.target.value);
+        runSiteSearch(event.target.value, event.shiftKey ? -1 : 1);
       });
     });
 
-    searchButtons.forEach((button, index) => {
-      button.addEventListener("click", () => {
-        const query = searchInputs[index] ? searchInputs[index].value : "";
-        syncSearchInputs(query);
-        runSiteSearch(query);
+    searchBars.forEach((bar, index) => {
+      bar.querySelectorAll(".nav-search-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const query = searchInputs[index] ? searchInputs[index].value : "";
+          const action = button.dataset.action;
+          syncSearchInputs(query);
+
+          if (action === "clear") {
+            clearSearchHit();
+            clearSearchMatches();
+            syncSearchInputs("");
+            setSearchStatus("");
+            return;
+          }
+
+          if (action === "prev") {
+            runSiteSearch(query, -1);
+            return;
+          }
+
+          runSiteSearch(query, 1);
+        });
       });
     });
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) updateActiveNav(visible.target.id);
+      },
+      {
+        rootMargin: "-18% 0px -62% 0px",
+        threshold: [0.2, 0.35, 0.55]
+      }
+    );
+
+    observedSections.forEach((section) => sectionObserver.observe(section));
+    updateActiveNav("domains");
 
     window.addEventListener("beforeprint", () => {
       document.title = "Mathias_AWS_Cloud_Practitioner_Revision";
