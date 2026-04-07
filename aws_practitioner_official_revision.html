@@ -1614,7 +1614,8 @@
       const stickyHeight = document.body.classList.contains("nav-stuck") && stickyNav
         ? stickyNav.offsetHeight
         : 0;
-      const top = element.getBoundingClientRect().top + window.scrollY - stickyHeight - 4;
+      const targetGap = stickyHeight > 0 ? 2 : 12;
+      const top = element.getBoundingClientRect().top + window.scrollY - stickyHeight - targetGap;
       window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
     }
 
